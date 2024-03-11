@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Data
 {
-    public class Product
+    internal class Product
     {
         [Key]
         public int Id { get; set; }

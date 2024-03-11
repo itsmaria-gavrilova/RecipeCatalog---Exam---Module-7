@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Data.Models
 {
-    public class Product_Recipe
+    internal class Product_Recipe
     {
         [Key]
         [ForeignKey(nameof(Product))]

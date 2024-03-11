@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeCatalog - Exam - Module 7", "RecipeCatalog - Exam - Module 7\RecipeCatalog - Exam - Module 7.csproj", "{FD45E661-1D30-4530-B6C6-4F5153A742BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeCatalog - Exam - Module 7", "RecipeCatalog - Exam - Module 7\RecipeCatalog - Exam - Module 7.csproj", "{FD45E661-1D30-4530-B6C6-4F5153A742BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{38A2CB12-C0FC-41B6-927A-0066839CB793}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{38A2CB12-C0FC-41B6-927A-0066839CB793}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{457EB168-E11D-4A93-967B-680E928456F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{38A2CB12-C0FC-41B6-927A-0066839CB793}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38A2CB12-C0FC-41B6-927A-0066839CB793}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38A2CB12-C0FC-41B6-927A-0066839CB793}.Release|Any CPU.Build.0 = Release|Any CPU
+		{457EB168-E11D-4A93-967B-680E928456F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{457EB168-E11D-4A93-967B-680E928456F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{457EB168-E11D-4A93-967B-680E928456F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{457EB168-E11D-4A93-967B-680E928456F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

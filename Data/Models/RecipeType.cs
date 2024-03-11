@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Data.Models
 {
-    public class RecipeType
+    internal class RecipeType
     {
         [Key]
         public int Id { get; set; }

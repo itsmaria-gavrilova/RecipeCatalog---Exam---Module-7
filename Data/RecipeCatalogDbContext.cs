@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Data.Models;
 
+
 namespace Data
 {
-    public class RecipeCatalogDbContext : DbContext
+    internal class RecipeCatalogDbContext : DbContext
     {
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<Product> Products { get; set; }
