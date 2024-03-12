@@ -95,11 +95,8 @@ namespace Business
                 List<Product_Recipe> recipeProducts = dbContext.Products_Recipes.Where(x => x.RecipeId == recipe.Id).ToList();
                 for (int i = 0; i < recipeProducts.Count; i++)
                 {
-                    List<Product> products = dbContext.Products.Where(x => x.Id == recipeProducts[i].ProductId).ToList();
-                    for (int j = 0; j < products.Count; j++)
-                    {
-                        totalPrice += products[j].Price;
-                    }
+                    Product product = (Product)dbContext.Products.Where(x => x.Id == recipeProducts[i].ProductId);
+                    totalPrice += product.Price;
                 }
                 return totalPrice;
             }
