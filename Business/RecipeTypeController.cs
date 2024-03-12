@@ -1,48 +1,46 @@
-﻿using System;
+﻿using Data;
+using Data.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Data;
-using Data.Models;
 
 namespace Business
 {
-    public class ProductController
+    public class RecipeTypeController
     {
         private RecipeCatalogDbContext dbContext;
-        public List<Product> GetAll()
+        public List<RecipeType> GetAll()
         {
             using (dbContext = new RecipeCatalogDbContext())
             {
-                return dbContext.Products.ToList();
+                return dbContext.RecipeTypes.ToList();
             }
         }
-        public Product Get(int id)
+        public RecipeType Get(int id)
         {
             using (dbContext = new RecipeCatalogDbContext())
             {
-                return dbContext.Products.Find(id);
+                return dbContext.RecipeTypes.Find(id);
             }
         }
-        public void Add(Product product)
+        public void Add(RecipeType recipeType)
         {
             using (dbContext = new RecipeCatalogDbContext())
             {
-                dbContext.Products.Add(product);
+                dbContext.RecipeTypes.Add(recipeType);
                 dbContext.SaveChanges();
             }
         }
-        public void Update(Product product)
+        public void Update(RecipeType recipeType)
         {
             using (dbContext = new RecipeCatalogDbContext())
             {
-                var item = dbContext.Products.Find(product.Id);
+                var item = dbContext.RecipeTypes.Find(recipeType.Id);
                 if (item != null)
                 {
-                    dbContext.Entry(item).CurrentValues.SetValues(product);
+                    dbContext.Entry(item).CurrentValues.SetValues(recipeType);
                     dbContext.SaveChanges();
                 }
             }
@@ -51,10 +49,10 @@ namespace Business
         {
             using (dbContext = new RecipeCatalogDbContext())
             {
-                var product = dbContext.Products.Find(id);
-                if (product != null)
+                var recipeType = dbContext.RecipeTypes.Find(id);
+                if (recipeType != null)
                 {
-                    dbContext.Products.Remove(product);
+                    dbContext.RecipeTypes.Remove(recipeType);
                     dbContext.SaveChanges();
                 }
             }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Data.Models
 {
-    internal class ProductType
+    public class ProductType
     {
         [Key]
         public int Id { get; set; }

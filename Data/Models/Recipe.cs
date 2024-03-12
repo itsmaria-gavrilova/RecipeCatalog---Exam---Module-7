@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Data.Models
 {
-    internal class Recipe
+    public class Recipe
     {
         [Key]
         public int Id { get; set; }

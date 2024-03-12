@@ -8,7 +8,7 @@ using Data.Models;
 
 namespace Data
 {
-    internal class RecipeCatalogDbContext : DbContext
+    public class RecipeCatalogDbContext : DbContext
     {
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<Product> Products { get; set; }

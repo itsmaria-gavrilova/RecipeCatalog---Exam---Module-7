@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Data.Models;
 
 namespace Data
 {
-    internal class Product
+    public class Product
     {
         [Key]
         public int Id { get; set; }
