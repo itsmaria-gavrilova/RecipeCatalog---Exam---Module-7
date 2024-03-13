@@ -223,6 +223,7 @@
             this.btnAdd.TabIndex = 23;
             this.btnAdd.Text = "Добави";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // rbCustomer
             // 

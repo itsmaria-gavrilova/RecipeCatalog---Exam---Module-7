@@ -26,5 +26,10 @@ namespace RecipeCatalog___Exam___Module_7
         {
 
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
