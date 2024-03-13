@@ -48,11 +48,19 @@
             this.rbCustomer = new System.Windows.Forms.RadioButton();
             this.rbAdmin = new System.Windows.Forms.RadioButton();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.btnTop5 = new System.Windows.Forms.Button();
+            this.btnGetAll = new System.Windows.Forms.Button();
+            this.btnGetAllByType = new System.Windows.Forms.Button();
+            this.btnSort = new System.Windows.Forms.Button();
+            this.gbProductRecipe = new System.Windows.Forms.GroupBox();
+            this.cbRecipeType = new System.Windows.Forms.ComboBox();
+            this.lsBoxRecipes = new System.Windows.Forms.ListBox();
+            this.gbProductRecipe.SuspendLayout();
             this.SuspendLayout();
             // 
             // txb4
             // 
-            this.txb4.Location = new System.Drawing.Point(255, 340);
+            this.txb4.Location = new System.Drawing.Point(274, 343);
             this.txb4.Name = "txb4";
             this.txb4.Size = new System.Drawing.Size(132, 23);
             this.txb4.TabIndex = 39;
@@ -167,7 +175,7 @@
             this.rbRecipe.AutoSize = true;
             this.rbRecipe.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbRecipe.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.rbRecipe.Location = new System.Drawing.Point(324, 147);
+            this.rbRecipe.Location = new System.Drawing.Point(145, 12);
             this.rbRecipe.Name = "rbRecipe";
             this.rbRecipe.Size = new System.Drawing.Size(82, 27);
             this.rbRecipe.TabIndex = 27;
@@ -180,7 +188,7 @@
             this.rbProduct.AutoSize = true;
             this.rbProduct.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbProduct.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.rbProduct.Location = new System.Drawing.Point(207, 149);
+            this.rbProduct.Location = new System.Drawing.Point(28, 14);
             this.rbProduct.Name = "rbProduct";
             this.rbProduct.Size = new System.Drawing.Size(83, 27);
             this.rbProduct.TabIndex = 26;
@@ -199,6 +207,7 @@
             this.btnUpdate.TabIndex = 25;
             this.btnUpdate.Text = "Актуализирай";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
@@ -211,6 +220,7 @@
             this.btnDelete.TabIndex = 24;
             this.btnDelete.Text = "Изтрий";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -262,12 +272,96 @@
             this.lblTitle.TabIndex = 20;
             this.lblTitle.Text = "Каталог за готварски рецепти";
             // 
+            // btnTop5
+            // 
+            this.btnTop5.BackColor = System.Drawing.Color.SandyBrown;
+            this.btnTop5.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnTop5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnTop5.Location = new System.Drawing.Point(31, 147);
+            this.btnTop5.Name = "btnTop5";
+            this.btnTop5.Size = new System.Drawing.Size(115, 82);
+            this.btnTop5.TabIndex = 40;
+            this.btnTop5.Text = "Топ 5 рецепти по рейтинг";
+            this.btnTop5.UseVisualStyleBackColor = false;
+            this.btnTop5.Click += new System.EventHandler(this.btnTop5_Click);
+            // 
+            // btnGetAll
+            // 
+            this.btnGetAll.BackColor = System.Drawing.Color.SandyBrown;
+            this.btnGetAll.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnGetAll.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnGetAll.Location = new System.Drawing.Point(31, 249);
+            this.btnGetAll.Name = "btnGetAll";
+            this.btnGetAll.Size = new System.Drawing.Size(115, 82);
+            this.btnGetAll.TabIndex = 41;
+            this.btnGetAll.Text = "Всички рецепти";
+            this.btnGetAll.UseVisualStyleBackColor = false;
+            // 
+            // btnGetAllByType
+            // 
+            this.btnGetAllByType.BackColor = System.Drawing.Color.SandyBrown;
+            this.btnGetAllByType.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnGetAllByType.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnGetAllByType.Location = new System.Drawing.Point(31, 350);
+            this.btnGetAllByType.Name = "btnGetAllByType";
+            this.btnGetAllByType.Size = new System.Drawing.Size(115, 82);
+            this.btnGetAllByType.TabIndex = 42;
+            this.btnGetAllByType.Text = "Всички рецепти по тип";
+            this.btnGetAllByType.UseVisualStyleBackColor = false;
+            // 
+            // btnSort
+            // 
+            this.btnSort.BackColor = System.Drawing.Color.SandyBrown;
+            this.btnSort.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSort.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnSort.Location = new System.Drawing.Point(31, 450);
+            this.btnSort.Name = "btnSort";
+            this.btnSort.Size = new System.Drawing.Size(115, 82);
+            this.btnSort.TabIndex = 43;
+            this.btnSort.Text = "Сортирай";
+            this.btnSort.UseVisualStyleBackColor = false;
+            // 
+            // gbProductRecipe
+            // 
+            this.gbProductRecipe.Controls.Add(this.cbRecipeType);
+            this.gbProductRecipe.Controls.Add(this.rbRecipe);
+            this.gbProductRecipe.Controls.Add(this.rbProduct);
+            this.gbProductRecipe.Location = new System.Drawing.Point(179, 135);
+            this.gbProductRecipe.Name = "gbProductRecipe";
+            this.gbProductRecipe.Size = new System.Drawing.Size(255, 55);
+            this.gbProductRecipe.TabIndex = 44;
+            this.gbProductRecipe.TabStop = false;
+            // 
+            // cbRecipeType
+            // 
+            this.cbRecipeType.FormattingEnabled = true;
+            this.cbRecipeType.Location = new System.Drawing.Point(26, 27);
+            this.cbRecipeType.Name = "cbRecipeType";
+            this.cbRecipeType.Size = new System.Drawing.Size(200, 23);
+            this.cbRecipeType.TabIndex = 45;
+            this.cbRecipeType.Text = "Избери тип";
+            // 
+            // lsBoxRecipes
+            // 
+            this.lsBoxRecipes.FormattingEnabled = true;
+            this.lsBoxRecipes.ItemHeight = 15;
+            this.lsBoxRecipes.Location = new System.Drawing.Point(208, 232);
+            this.lsBoxRecipes.Name = "lsBoxRecipes";
+            this.lsBoxRecipes.Size = new System.Drawing.Size(198, 259);
+            this.lsBoxRecipes.TabIndex = 45;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.ClientSize = new System.Drawing.Size(470, 570);
+            this.Controls.Add(this.lsBoxRecipes);
+            this.Controls.Add(this.gbProductRecipe);
+            this.Controls.Add(this.btnSort);
+            this.Controls.Add(this.btnGetAllByType);
+            this.Controls.Add(this.btnGetAll);
+            this.Controls.Add(this.btnTop5);
             this.Controls.Add(this.txb4);
             this.Controls.Add(this.txb3);
             this.Controls.Add(this.txb2);
@@ -280,8 +374,6 @@
             this.Controls.Add(this.lbl2);
             this.Controls.Add(this.lbl1);
             this.Controls.Add(this.lblEnterData);
-            this.Controls.Add(this.rbRecipe);
-            this.Controls.Add(this.rbProduct);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
@@ -290,6 +382,8 @@
             this.Controls.Add(this.lblTitle);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.gbProductRecipe.ResumeLayout(false);
+            this.gbProductRecipe.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -317,5 +411,12 @@
         private RadioButton rbCustomer;
         private RadioButton rbAdmin;
         private Label lblTitle;
+        private Button btnTop5;
+        private Button btnGetAll;
+        private Button btnGetAllByType;
+        private Button btnSort;
+        private GroupBox gbProductRecipe;
+        private ComboBox cbRecipeType;
+        private ListBox lsBoxRecipes;
     }
 }

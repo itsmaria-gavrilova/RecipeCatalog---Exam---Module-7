@@ -31,5 +31,20 @@ namespace RecipeCatalog___Exam___Module_7
         {
 
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTop5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
