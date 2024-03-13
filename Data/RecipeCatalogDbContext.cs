@@ -25,6 +25,10 @@ namespace Data
             string connectionString = "Server=.;Database=RecipeCatalogDB;Integrated Security=True";
             optionsBuilder.UseSqlServer(connectionString);
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Product_Recipe>().HasKey(pr => new { pr.ProductId, pr.RecipeId });
+        }
     }
 }
 
