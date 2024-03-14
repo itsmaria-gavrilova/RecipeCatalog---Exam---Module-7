@@ -247,6 +247,7 @@
             this.rbCustomer.TabStop = true;
             this.rbCustomer.Text = "потребител";
             this.rbCustomer.UseVisualStyleBackColor = true;
+            this.rbCustomer.CheckedChanged += new System.EventHandler(this.rbCustomer_CheckedChanged_1);
             // 
             // rbAdmin
             // 
@@ -260,6 +261,7 @@
             this.rbAdmin.TabStop = true;
             this.rbAdmin.Text = "администратор";
             this.rbAdmin.UseVisualStyleBackColor = true;
+            this.rbAdmin.CheckedChanged += new System.EventHandler(this.rbAdmin_CheckedChanged_1);
             // 
             // lblTitle
             // 

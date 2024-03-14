@@ -63,61 +63,6 @@ namespace RecipeCatalog___Exam___Module_7
                 lsBoxRecipes.Items.Add(recipe);
             }
         }
-
-        private void rbAdmin_CheckedChanged(object sender, EventArgs e)
-        {
-            btnAdd.Visible = true;
-            btnDelete.Visible = true;
-            btnUpdate.Visible = true;
-            gbProductRecipe.Visible = true;
-            lbl1.Visible = true;
-            lbl2.Visible = true;
-            lbl3.Visible = true;
-            lbl4.Visible = true;
-            lbl5.Visible = true;
-            rbProduct.Visible = true;
-            rbRecipe.Visible = true;
-            txb2.Visible = true;
-            txt1.Visible = true;
-            txb3.Visible = true;
-            txb4.Visible = true;
-            rtxbDesc.Visible = true;
-            lblEnterData.Visible = true;
-            CbRecipeType.Visible = false;
-            btnGetAll.Visible = false;
-            btnGetAllByType.Visible = false;
-            btnSort.Visible = false;
-            btnTop5.Visible = false;
-            lsBoxRecipes.Visible = false;
-        }
-
-        private void rbCustomer_CheckedChanged(object sender, EventArgs e)
-        {
-            CbRecipeType.Visible = true;
-            btnGetAll.Visible = true;
-            btnGetAllByType.Visible = true;
-            btnSort.Visible = true;
-            btnTop5.Visible = true;
-            lsBoxRecipes.Visible = true;
-            btnAdd.Visible = false;
-            btnDelete.Visible = false;
-            btnUpdate.Visible = false;
-            gbProductRecipe.Visible = false;
-            lbl1.Visible = false;
-            lbl2.Visible = false;
-            lbl3.Visible = false;
-            lbl4.Visible = false;
-            lbl5.Visible = false;
-            rbProduct.Visible = false;
-            rbRecipe.Visible = false;
-            txb2.Visible = false;
-            txt1.Visible = false;
-            txb3.Visible = false;
-            txb4.Visible = false;
-            rtxbDesc.Visible = false;
-            lblEnterData.Visible = false;
-        }
-
         private void btnGetAll_Click(object sender, EventArgs e)
         {
             lsBoxRecipes.Items.Clear();
@@ -154,6 +99,60 @@ namespace RecipeCatalog___Exam___Module_7
             Recipe recipe = this.recipeController.GetByName(lsBoxRecipes.SelectedItem.ToString());
             form2.recipe = recipe;
             form2.Show();
+        }
+
+        private void rbAdmin_CheckedChanged_1(object sender, EventArgs e)
+        {
+            btnAdd.Visible = true;
+            btnDelete.Visible = true;
+            btnUpdate.Visible = true;
+            gbProductRecipe.Visible = true;
+            lbl1.Visible = true;
+            lbl2.Visible = true;
+            lbl3.Visible = true;
+            lbl4.Visible = true;
+            lbl5.Visible = true;
+            rbProduct.Visible = true;
+            rbRecipe.Visible = true;
+            txb2.Visible = true;
+            txt1.Visible = true;
+            txb3.Visible = true;
+            txb4.Visible = true;
+            rtxbDesc.Visible = true;
+            lblEnterData.Visible = true;
+            CbRecipeType.Visible = false;
+            btnGetAll.Visible = false;
+            btnGetAllByType.Visible = false;
+            btnSort.Visible = false;
+            btnTop5.Visible = false;
+            lsBoxRecipes.Visible = false;
+        }
+
+        private void rbCustomer_CheckedChanged_1(object sender, EventArgs e)
+        {
+            CbRecipeType.Visible = true;
+            btnGetAll.Visible = true;
+            btnGetAllByType.Visible = true;
+            btnSort.Visible = true;
+            btnTop5.Visible = true;
+            lsBoxRecipes.Visible = true;
+            btnAdd.Visible = false;
+            btnDelete.Visible = false;
+            btnUpdate.Visible = false;
+            gbProductRecipe.Visible = false;
+            lbl1.Visible = false;
+            lbl2.Visible = false;
+            lbl3.Visible = false;
+            lbl4.Visible = false;
+            lbl5.Visible = false;
+            rbProduct.Visible = false;
+            rbRecipe.Visible = false;
+            txb2.Visible = false;
+            txt1.Visible = false;
+            txb3.Visible = false;
+            txb4.Visible = false;
+            rtxbDesc.Visible = false;
+            lblEnterData.Visible = false;
         }
     }
 }
