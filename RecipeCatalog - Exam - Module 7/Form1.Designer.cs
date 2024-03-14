@@ -53,7 +53,7 @@
             this.btnGetAllByType = new System.Windows.Forms.Button();
             this.btnSort = new System.Windows.Forms.Button();
             this.gbProductRecipe = new System.Windows.Forms.GroupBox();
-            this.cbRecipeType = new System.Windows.Forms.ComboBox();
+            this.CbRecipeType = new System.Windows.Forms.ComboBox();
             this.lsBoxRecipes = new System.Windows.Forms.ListBox();
             this.gbProductRecipe.SuspendLayout();
             this.SuspendLayout();
@@ -323,23 +323,22 @@
             // 
             // gbProductRecipe
             // 
-            this.gbProductRecipe.Controls.Add(this.cbRecipeType);
             this.gbProductRecipe.Controls.Add(this.rbRecipe);
             this.gbProductRecipe.Controls.Add(this.rbProduct);
-            this.gbProductRecipe.Location = new System.Drawing.Point(179, 135);
+            this.gbProductRecipe.Location = new System.Drawing.Point(184, 119);
             this.gbProductRecipe.Name = "gbProductRecipe";
             this.gbProductRecipe.Size = new System.Drawing.Size(255, 55);
             this.gbProductRecipe.TabIndex = 44;
             this.gbProductRecipe.TabStop = false;
             // 
-            // cbRecipeType
+            // CbRecipeType
             // 
-            this.cbRecipeType.FormattingEnabled = true;
-            this.cbRecipeType.Location = new System.Drawing.Point(26, 27);
-            this.cbRecipeType.Name = "cbRecipeType";
-            this.cbRecipeType.Size = new System.Drawing.Size(200, 23);
-            this.cbRecipeType.TabIndex = 45;
-            this.cbRecipeType.Text = "Избери тип";
+            this.CbRecipeType.FormattingEnabled = true;
+            this.CbRecipeType.Location = new System.Drawing.Point(208, 195);
+            this.CbRecipeType.Name = "CbRecipeType";
+            this.CbRecipeType.Size = new System.Drawing.Size(200, 23);
+            this.CbRecipeType.TabIndex = 45;
+            this.CbRecipeType.Text = "Избери тип";
             // 
             // lsBoxRecipes
             // 
@@ -356,6 +355,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.ClientSize = new System.Drawing.Size(470, 570);
+            this.Controls.Add(this.CbRecipeType);
             this.Controls.Add(this.lsBoxRecipes);
             this.Controls.Add(this.gbProductRecipe);
             this.Controls.Add(this.btnSort);
@@ -416,7 +416,7 @@
         private Button btnGetAllByType;
         private Button btnSort;
         private GroupBox gbProductRecipe;
-        private ComboBox cbRecipeType;
+        private ComboBox CbRecipeType;
         private ListBox lsBoxRecipes;
     }
 }

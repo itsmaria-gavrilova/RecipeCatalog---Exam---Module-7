@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Business;
+using Data.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +14,27 @@ namespace RecipeCatalog___Exam___Module_7
 {
     public partial class Form2 : Form
     {
+        public Recipe recipe;
+        private RecipeTypeController recipeTypeController;
         public Form2()
         {
             InitializeComponent();
+            this.recipe = new Recipe();
+            this.recipeTypeController = new RecipeTypeController();
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            lblCaloriesResult.Text = recipe.Kcal.ToString();
+            lblDescriptionResult.Text = recipe.Description.ToString();
+            lblRatingResult.Text = recipe.Rating.ToString();
+            lblTypeResult.Text = recipeTypeController.GetType().ToString();
+            lblRecipeName.Text = recipe.Name.ToString();
         }
     }
 }

@@ -38,6 +38,7 @@
             this.lblTypeResult = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
             this.lblDescriptionResult = new System.Windows.Forms.Label();
+            this.btnLoad = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblHeading
@@ -135,12 +136,25 @@
             this.lblDescriptionResult.Size = new System.Drawing.Size(0, 28);
             this.lblDescriptionResult.TabIndex = 9;
             // 
+            // btnLoad
+            // 
+            this.btnLoad.BackColor = System.Drawing.Color.SandyBrown;
+            this.btnLoad.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnLoad.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnLoad.Location = new System.Drawing.Point(398, 506);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(115, 43);
+            this.btnLoad.TabIndex = 44;
+            this.btnLoad.Text = "Зареди";
+            this.btnLoad.UseVisualStyleBackColor = false;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Linen;
             this.ClientSize = new System.Drawing.Size(525, 561);
+            this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.lblDescriptionResult);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblTypeResult);
@@ -170,5 +184,6 @@
         private Label lblTypeResult;
         private Label lblDescription;
         private Label lblDescriptionResult;
+        private Button btnLoad;
     }
 }
