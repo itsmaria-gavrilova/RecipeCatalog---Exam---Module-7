@@ -18,11 +18,11 @@ namespace Business
                 return dbContext.RecipeTypes.ToList();
             }
         }
-        public RecipeType Get(int id)
+        public RecipeType Get(string name)
         {
             using (dbContext = new RecipeCatalogDbContext())
             {
-                return dbContext.RecipeTypes.Find(id);
+                return dbContext.RecipeTypes.Find(name);
             }
         }
         public void Add(RecipeType recipeType)

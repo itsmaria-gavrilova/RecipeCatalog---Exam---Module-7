@@ -22,7 +22,7 @@ namespace Data
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string connectionString = "Server=.;Database=RecipeCatalogDB;Integrated Security=True";
+            string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=RecipeCatalogDB;Integrated Security=True";
             optionsBuilder.UseSqlServer(connectionString);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
