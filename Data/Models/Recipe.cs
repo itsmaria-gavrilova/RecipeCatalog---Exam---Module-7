@@ -21,6 +21,7 @@ namespace Data.Models
         public double Rating { get; set; }
         [ForeignKey(nameof(RecipeType))]
         public int TypeId { get; set; }
+        public RecipeType RecipeType { get; set; }
         public ICollection<Product_Recipe> ProductsRecipes { get; set; }
         public ICollection<Product> Products { get; set; }
     }

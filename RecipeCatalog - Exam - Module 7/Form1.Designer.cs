@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txb4 = new System.Windows.Forms.TextBox();
             this.txb3 = new System.Windows.Forms.TextBox();
             this.txb2 = new System.Windows.Forms.TextBox();
@@ -59,43 +60,77 @@
             this.rbAdd = new System.Windows.Forms.RadioButton();
             this.rbDelete = new System.Windows.Forms.RadioButton();
             this.rbUpdate = new System.Windows.Forms.RadioButton();
+            this.dgvProductType = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dgvRecipeType = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.recipeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dgvProduct = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dgvRecipe = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kcalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ratingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.recipeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productControllerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rtbProducts = new System.Windows.Forms.RichTextBox();
+            this.lblProducts = new System.Windows.Forms.Label();
             this.gbProductRecipe.SuspendLayout();
             this.gbaAminCust.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productTypeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRecipeType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.recipeTypeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRecipe)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.recipeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productControllerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // txb4
             // 
-            this.txb4.Location = new System.Drawing.Point(274, 343);
+            this.txb4.Location = new System.Drawing.Point(217, 308);
             this.txb4.Name = "txb4";
             this.txb4.Size = new System.Drawing.Size(132, 23);
             this.txb4.TabIndex = 39;
             // 
             // txb3
             // 
-            this.txb3.Location = new System.Drawing.Point(283, 304);
+            this.txb3.Location = new System.Drawing.Point(246, 279);
             this.txb3.Name = "txb3";
             this.txb3.Size = new System.Drawing.Size(132, 23);
             this.txb3.TabIndex = 38;
             // 
             // txb2
             // 
-            this.txb2.Location = new System.Drawing.Point(283, 271);
+            this.txb2.Location = new System.Drawing.Point(248, 249);
             this.txb2.Name = "txb2";
             this.txb2.Size = new System.Drawing.Size(132, 23);
             this.txb2.TabIndex = 37;
             // 
             // txb1
             // 
-            this.txb1.Location = new System.Drawing.Point(255, 232);
+            this.txb1.Location = new System.Drawing.Point(218, 221);
             this.txb1.Name = "txb1";
             this.txb1.Size = new System.Drawing.Size(132, 23);
             this.txb1.TabIndex = 36;
             // 
             // rtxbDesc
             // 
-            this.rtxbDesc.Location = new System.Drawing.Point(208, 410);
+            this.rtxbDesc.Location = new System.Drawing.Point(170, 370);
             this.rtxbDesc.Name = "rtxbDesc";
-            this.rtxbDesc.Size = new System.Drawing.Size(231, 132);
+            this.rtxbDesc.Size = new System.Drawing.Size(161, 132);
             this.rtxbDesc.TabIndex = 35;
             this.rtxbDesc.Text = "";
             // 
@@ -104,7 +139,7 @@
             this.lblDescription.AutoSize = true;
             this.lblDescription.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblDescription.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblDescription.Location = new System.Drawing.Point(207, 369);
+            this.lblDescription.Location = new System.Drawing.Point(170, 343);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(161, 23);
             this.lblDescription.TabIndex = 34;
@@ -125,7 +160,7 @@
             this.lbl4.AutoSize = true;
             this.lbl4.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl4.Location = new System.Drawing.Point(208, 337);
+            this.lbl4.Location = new System.Drawing.Point(170, 308);
             this.lbl4.Name = "lbl4";
             this.lbl4.Size = new System.Drawing.Size(41, 23);
             this.lbl4.TabIndex = 32;
@@ -136,7 +171,7 @@
             this.lbl3.AutoSize = true;
             this.lbl3.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl3.Location = new System.Drawing.Point(207, 304);
+            this.lbl3.Location = new System.Drawing.Point(170, 279);
             this.lbl3.Name = "lbl3";
             this.lbl3.Size = new System.Drawing.Size(70, 23);
             this.lbl3.TabIndex = 31;
@@ -147,7 +182,7 @@
             this.lbl2.AutoSize = true;
             this.lbl2.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl2.Location = new System.Drawing.Point(207, 268);
+            this.lbl2.Location = new System.Drawing.Point(170, 249);
             this.lbl2.Name = "lbl2";
             this.lbl2.Size = new System.Drawing.Size(72, 23);
             this.lbl2.TabIndex = 30;
@@ -158,7 +193,7 @@
             this.lbl1.AutoSize = true;
             this.lbl1.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl1.Location = new System.Drawing.Point(207, 232);
+            this.lbl1.Location = new System.Drawing.Point(170, 218);
             this.lbl1.Name = "lbl1";
             this.lbl1.Size = new System.Drawing.Size(42, 23);
             this.lbl1.TabIndex = 29;
@@ -169,7 +204,7 @@
             this.lblEnterData.AutoSize = true;
             this.lblEnterData.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblEnterData.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblEnterData.Location = new System.Drawing.Point(207, 195);
+            this.lblEnterData.Location = new System.Drawing.Point(170, 186);
             this.lblEnterData.Name = "lblEnterData";
             this.lblEnterData.Size = new System.Drawing.Size(154, 23);
             this.lblEnterData.TabIndex = 28;
@@ -305,6 +340,7 @@
             this.btnGetAll.TabIndex = 41;
             this.btnGetAll.Text = "Всички рецепти";
             this.btnGetAll.UseVisualStyleBackColor = false;
+            this.btnGetAll.Click += new System.EventHandler(this.btnGetAll_Click_1);
             // 
             // btnGetAllByType
             // 
@@ -317,6 +353,7 @@
             this.btnGetAllByType.TabIndex = 42;
             this.btnGetAllByType.Text = "Всички рецепти по тип";
             this.btnGetAllByType.UseVisualStyleBackColor = false;
+            this.btnGetAllByType.Click += new System.EventHandler(this.btnGetAllByType_Click_1);
             // 
             // btnSort
             // 
@@ -329,12 +366,13 @@
             this.btnSort.TabIndex = 43;
             this.btnSort.Text = "Сортирай";
             this.btnSort.UseVisualStyleBackColor = false;
+            this.btnSort.Click += new System.EventHandler(this.btnSort_Click_1);
             // 
             // gbProductRecipe
             // 
             this.gbProductRecipe.Controls.Add(this.rbRecipe);
             this.gbProductRecipe.Controls.Add(this.rbProduct);
-            this.gbProductRecipe.Location = new System.Drawing.Point(184, 119);
+            this.gbProductRecipe.Location = new System.Drawing.Point(160, 119);
             this.gbProductRecipe.Name = "gbProductRecipe";
             this.gbProductRecipe.Size = new System.Drawing.Size(255, 55);
             this.gbProductRecipe.TabIndex = 44;
@@ -343,7 +381,7 @@
             // CbRecipeType
             // 
             this.CbRecipeType.FormattingEnabled = true;
-            this.CbRecipeType.Location = new System.Drawing.Point(208, 195);
+            this.CbRecipeType.Location = new System.Drawing.Point(217, 186);
             this.CbRecipeType.Name = "CbRecipeType";
             this.CbRecipeType.Size = new System.Drawing.Size(200, 23);
             this.CbRecipeType.TabIndex = 45;
@@ -353,10 +391,11 @@
             // 
             this.lsBoxRecipes.FormattingEnabled = true;
             this.lsBoxRecipes.ItemHeight = 15;
-            this.lsBoxRecipes.Location = new System.Drawing.Point(51, 166);
+            this.lsBoxRecipes.Location = new System.Drawing.Point(219, 221);
             this.lsBoxRecipes.Name = "lsBoxRecipes";
             this.lsBoxRecipes.Size = new System.Drawing.Size(198, 259);
             this.lsBoxRecipes.TabIndex = 45;
+            this.lsBoxRecipes.SelectedIndexChanged += new System.EventHandler(this.lsBoxRecipes_SelectedIndexChanged_1);
             // 
             // gbaAminCust
             // 
@@ -407,12 +446,231 @@
             this.rbUpdate.UseVisualStyleBackColor = true;
             this.rbUpdate.CheckedChanged += new System.EventHandler(this.rbUpdate_CheckedChanged);
             // 
+            // dgvProductType
+            // 
+            this.dgvProductType.AllowUserToAddRows = false;
+            this.dgvProductType.AllowUserToDeleteRows = false;
+            this.dgvProductType.AutoGenerateColumns = false;
+            this.dgvProductType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductType.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn3,
+            this.nameDataGridViewTextBoxColumn3});
+            this.dgvProductType.DataSource = this.productTypeBindingSource;
+            this.dgvProductType.Location = new System.Drawing.Point(547, 28);
+            this.dgvProductType.Name = "dgvProductType";
+            this.dgvProductType.ReadOnly = true;
+            this.dgvProductType.RowTemplate.Height = 25;
+            this.dgvProductType.Size = new System.Drawing.Size(244, 227);
+            this.dgvProductType.TabIndex = 50;
+            // 
+            // idDataGridViewTextBoxColumn3
+            // 
+            this.idDataGridViewTextBoxColumn3.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn3.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn3.Name = "idDataGridViewTextBoxColumn3";
+            this.idDataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn3
+            // 
+            this.nameDataGridViewTextBoxColumn3.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn3.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn3.Name = "nameDataGridViewTextBoxColumn3";
+            this.nameDataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // productTypeBindingSource
+            // 
+            this.productTypeBindingSource.DataSource = typeof(Data.Models.ProductType);
+            // 
+            // dgvRecipeType
+            // 
+            this.dgvRecipeType.AllowUserToAddRows = false;
+            this.dgvRecipeType.AllowUserToDeleteRows = false;
+            this.dgvRecipeType.AutoGenerateColumns = false;
+            this.dgvRecipeType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRecipeType.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn2,
+            this.nameDataGridViewTextBoxColumn2});
+            this.dgvRecipeType.DataSource = this.recipeTypeBindingSource;
+            this.dgvRecipeType.Location = new System.Drawing.Point(547, 275);
+            this.dgvRecipeType.Name = "dgvRecipeType";
+            this.dgvRecipeType.ReadOnly = true;
+            this.dgvRecipeType.RowTemplate.Height = 25;
+            this.dgvRecipeType.Size = new System.Drawing.Size(244, 227);
+            this.dgvRecipeType.TabIndex = 51;
+            // 
+            // idDataGridViewTextBoxColumn2
+            // 
+            this.idDataGridViewTextBoxColumn2.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn2.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn2.Name = "idDataGridViewTextBoxColumn2";
+            this.idDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn2
+            // 
+            this.nameDataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
+            this.nameDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // recipeTypeBindingSource
+            // 
+            this.recipeTypeBindingSource.DataSource = typeof(Data.Models.RecipeType);
+            // 
+            // dgvProduct
+            // 
+            this.dgvProduct.AllowUserToAddRows = false;
+            this.dgvProduct.AllowUserToDeleteRows = false;
+            this.dgvProduct.AutoGenerateColumns = false;
+            this.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProduct.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.priceDataGridViewTextBoxColumn,
+            this.typeIdDataGridViewTextBoxColumn});
+            this.dgvProduct.DataSource = this.productBindingSource;
+            this.dgvProduct.Location = new System.Drawing.Point(812, 28);
+            this.dgvProduct.Name = "dgvProduct";
+            this.dgvProduct.ReadOnly = true;
+            this.dgvProduct.RowTemplate.Height = 25;
+            this.dgvProduct.Size = new System.Drawing.Size(323, 227);
+            this.dgvProduct.TabIndex = 52;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // typeIdDataGridViewTextBoxColumn
+            // 
+            this.typeIdDataGridViewTextBoxColumn.DataPropertyName = "TypeId";
+            this.typeIdDataGridViewTextBoxColumn.HeaderText = "TypeId";
+            this.typeIdDataGridViewTextBoxColumn.Name = "typeIdDataGridViewTextBoxColumn";
+            this.typeIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataSource = typeof(Data.Models.Product);
+            // 
+            // dgvRecipe
+            // 
+            this.dgvRecipe.AllowUserToAddRows = false;
+            this.dgvRecipe.AllowUserToDeleteRows = false;
+            this.dgvRecipe.AutoGenerateColumns = false;
+            this.dgvRecipe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRecipe.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn1,
+            this.nameDataGridViewTextBoxColumn1,
+            this.kcalDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn,
+            this.ratingDataGridViewTextBoxColumn,
+            this.typeIdDataGridViewTextBoxColumn1});
+            this.dgvRecipe.DataSource = this.recipeBindingSource;
+            this.dgvRecipe.GridColor = System.Drawing.Color.SaddleBrown;
+            this.dgvRecipe.Location = new System.Drawing.Point(812, 275);
+            this.dgvRecipe.Name = "dgvRecipe";
+            this.dgvRecipe.ReadOnly = true;
+            this.dgvRecipe.RowTemplate.Height = 25;
+            this.dgvRecipe.Size = new System.Drawing.Size(323, 227);
+            this.dgvRecipe.TabIndex = 53;
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // kcalDataGridViewTextBoxColumn
+            // 
+            this.kcalDataGridViewTextBoxColumn.DataPropertyName = "Kcal";
+            this.kcalDataGridViewTextBoxColumn.HeaderText = "Kcal";
+            this.kcalDataGridViewTextBoxColumn.Name = "kcalDataGridViewTextBoxColumn";
+            this.kcalDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ratingDataGridViewTextBoxColumn
+            // 
+            this.ratingDataGridViewTextBoxColumn.DataPropertyName = "Rating";
+            this.ratingDataGridViewTextBoxColumn.HeaderText = "Rating";
+            this.ratingDataGridViewTextBoxColumn.Name = "ratingDataGridViewTextBoxColumn";
+            this.ratingDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // typeIdDataGridViewTextBoxColumn1
+            // 
+            this.typeIdDataGridViewTextBoxColumn1.DataPropertyName = "TypeId";
+            this.typeIdDataGridViewTextBoxColumn1.HeaderText = "TypeId";
+            this.typeIdDataGridViewTextBoxColumn1.Name = "typeIdDataGridViewTextBoxColumn1";
+            this.typeIdDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // recipeBindingSource
+            // 
+            this.recipeBindingSource.DataSource = typeof(Data.Models.Recipe);
+            // 
+            // productControllerBindingSource
+            // 
+            this.productControllerBindingSource.DataSource = typeof(Business.ProductController);
+            // 
+            // rtbProducts
+            // 
+            this.rtbProducts.Location = new System.Drawing.Point(359, 370);
+            this.rtbProducts.Name = "rtbProducts";
+            this.rtbProducts.Size = new System.Drawing.Size(161, 132);
+            this.rtbProducts.TabIndex = 54;
+            this.rtbProducts.Text = "";
+            // 
+            // lblProducts
+            // 
+            this.lblProducts.AutoSize = true;
+            this.lblProducts.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblProducts.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblProducts.Location = new System.Drawing.Point(360, 343);
+            this.lblProducts.Name = "lblProducts";
+            this.lblProducts.Size = new System.Drawing.Size(80, 23);
+            this.lblProducts.TabIndex = 55;
+            this.lblProducts.Text = "Продукти:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.ClientSize = new System.Drawing.Size(470, 570);
+            this.ClientSize = new System.Drawing.Size(1154, 537);
+            this.Controls.Add(this.lsBoxRecipes);
+            this.Controls.Add(this.lblProducts);
+            this.Controls.Add(this.rtbProducts);
+            this.Controls.Add(this.dgvRecipe);
+            this.Controls.Add(this.dgvProduct);
+            this.Controls.Add(this.dgvRecipeType);
+            this.Controls.Add(this.dgvProductType);
             this.Controls.Add(this.btnGetAllByType);
             this.Controls.Add(this.btnGetAll);
             this.Controls.Add(this.btnTop5);
@@ -421,7 +679,6 @@
             this.Controls.Add(this.rbAdd);
             this.Controls.Add(this.gbaAminCust);
             this.Controls.Add(this.CbRecipeType);
-            this.Controls.Add(this.lsBoxRecipes);
             this.Controls.Add(this.gbProductRecipe);
             this.Controls.Add(this.btnSort);
             this.Controls.Add(this.txb4);
@@ -442,10 +699,20 @@
             this.Controls.Add(this.lblTitle);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.gbProductRecipe.ResumeLayout(false);
             this.gbProductRecipe.PerformLayout();
             this.gbaAminCust.ResumeLayout(false);
             this.gbaAminCust.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productTypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRecipeType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.recipeTypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRecipe)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.recipeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productControllerBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -484,5 +751,30 @@
         private RadioButton rbAdd;
         private RadioButton rbDelete;
         private RadioButton rbUpdate;
+        private DataGridView dgvProductType;
+        private DataGridView dgvRecipeType;
+        private DataGridView dgvProduct;
+        private DataGridView dgvRecipe;
+        private BindingSource productControllerBindingSource;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn3;
+        private BindingSource productTypeBindingSource;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn2;
+        private BindingSource recipeTypeBindingSource;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn typeIdDataGridViewTextBoxColumn;
+        private BindingSource productBindingSource;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn kcalDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn ratingDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn typeIdDataGridViewTextBoxColumn1;
+        private BindingSource recipeBindingSource;
+        private RichTextBox rtbProducts;
+        private Label lblProducts;
     }
 }

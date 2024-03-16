@@ -20,11 +20,11 @@ namespace Business
                 return dbContext.Products.ToList();
             }
         }
-        public Product Get(string name)
+        public Product Get(int id)
         {
             using (dbContext = new RecipeCatalogDbContext())
             {
-                return dbContext.Products.Find(name);
+                return dbContext.Products.Find(id);
             }
         }
         public void Add(Product product)
@@ -58,6 +58,10 @@ namespace Business
                     dbContext.SaveChanges();
                 }
             }
+        }
+        public Product GetByName(string name)
+        {
+            return this.GetAll().Where(x => x.Name == name).First();
         }
     }
 }

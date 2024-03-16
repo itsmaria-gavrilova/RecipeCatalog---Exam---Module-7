@@ -28,12 +28,13 @@ namespace RecipeCatalog___Exam___Module_7
 
         }
 
-        private void btnLoad_Click(object sender, EventArgs e)
+
+        private void btnLoad_Click_1(object sender, EventArgs e)
         {
             lblCaloriesResult.Text = recipe.Kcal.ToString();
             lblDescriptionResult.Text = recipe.Description.ToString();
             lblRatingResult.Text = recipe.Rating.ToString();
-            lblTypeResult.Text = recipeTypeController.GetType().ToString();
+            lblTypeResult.Text = recipeTypeController.Get(recipe.TypeId).Name;
             lblRecipeName.Text = recipe.Name.ToString();
         }
     }

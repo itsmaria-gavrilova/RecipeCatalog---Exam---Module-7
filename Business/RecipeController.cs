@@ -6,17 +6,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Business
 {
     public class RecipeController
     {
         private RecipeCatalogDbContext dbContext;
+        private ProductController productController = new ProductController();
+        private RecipeTypeController recipeTypeController = new RecipeTypeController();
+        private ProductTypeController productTypeController = new ProductTypeController();
         public List<Recipe> GetAll()
         {
             using (dbContext = new RecipeCatalogDbContext())
             {
-                return dbContext.Recipes.ToList();
+                dbContext.Recipes.Include(pr => pr.ProductsRecipes).ThenInclude(p => p.Product).ToList();
+                return dbContext.Recipes.Include(rt => rt.RecipeType).ToList();
             }
         }
         public void Delete(int id)
@@ -31,11 +36,11 @@ namespace Business
                 }
             }
         }
-        public Recipe GetByName(string name)
+        public Recipe Get(int id)
         {
             using (dbContext = new RecipeCatalogDbContext())
             {
-                return dbContext.Recipes.Find(name);
+                return dbContext.Recipes.Find(id);
             }
         }
         public void Add(Recipe recipe)
@@ -50,7 +55,7 @@ namespace Business
         {
             using (dbContext = new RecipeCatalogDbContext())
             {
-                var item = dbContext.Recipes.Find(recipe.Name);
+                var item = dbContext.Recipes.Find(recipe.Id);
                 if (item != null)
                 {
                     dbContext.Entry(item).CurrentValues.SetValues(recipe);
@@ -58,19 +63,18 @@ namespace Business
                 }
             }
         }
-        public void SortByCalories()
+        public List<Recipe> SortByCalories()
         {
             using(dbContext=new RecipeCatalogDbContext())
             {
-                dbContext.Recipes.OrderBy(x => x.Kcal);
-                dbContext.SaveChanges();
+                return dbContext.Recipes.OrderBy(x => x.Kcal).ToList();
             }
         }
         public List<Recipe> GetAllByType(string type)
         {
             using(dbContext = new RecipeCatalogDbContext())
             {
-                int id = dbContext.RecipeTypes.Find(type).Id;
+                int id=recipeTypeController.GetByName(type);
                 return dbContext.Recipes.Where(x => x.TypeId == id).ToList();
             }
         }
@@ -78,13 +82,7 @@ namespace Business
         {
             using (dbContext = new RecipeCatalogDbContext())
             {
-                List<Recipe> sortedRecipes = dbContext.Recipes.OrderByDescending(x => x.Rating).ToList();
-                List<Recipe> top5ByRating = new List<Recipe>();
-                for (int i = 0; i < 5; i++)
-                {
-                    top5ByRating.Add(sortedRecipes[i]);
-                }
-                return top5ByRating;
+                return dbContext.Recipes.OrderByDescending(x => x.Rating).Take(5).ToList();
             }
         }
         public double CalculatePrice(Recipe recipe)
@@ -101,5 +99,24 @@ namespace Business
                 return totalPrice;
             }
         }
+        public Recipe GetByName(string name)
+        {
+            return this.GetAll().Where(x => x.Name == name).First();
+        }
+        //public List<string> GetProductsByRecipe(string recipeName)
+        //{
+        //    int id = this.GetByName(recipeName);
+        //    List<string> productsByRecipe = new List<string>();
+        //    List<int> productIDs = new List<int>();
+        //    foreach(var item in dbContext.Products_Recipes.Where(x => x.RecipeId == id).ToList())
+        //    {
+        //        productIDs.Add(item.ProductId);
+        //    }
+        //    foreach(var item in productIDs)
+        //    {
+        //        productsByRecipe.Add(productController.Get(item).Name);
+        //    }
+        //    return productsByRecipe;
+        //}
     }
 }

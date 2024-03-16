@@ -1,8 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using Data.Models;
 
-namespace Data
+namespace Data.Models
 {
     public class Product
     {
@@ -15,7 +14,7 @@ namespace Data
 
         [ForeignKey(nameof(ProductType))]
         public int TypeId { get; set; }
-
+        public ProductType ProductType { get; set; }
         public ICollection<Recipe> Recipes { get; set; }
         public ICollection<Product_Recipe> ProductsRecipes { get; set; }
     }

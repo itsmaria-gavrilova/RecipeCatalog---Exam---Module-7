@@ -128,12 +128,12 @@
             this.lblDescription.Text = "Начин на приготвяне:";
             // 
             // lblDescriptionResult
-            // 
-            this.lblDescriptionResult.AutoSize = true;
+            //
+            this.lblDescriptionResult.AutoSize = false;
             this.lblDescriptionResult.Font = new System.Drawing.Font("Sitka Display", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblDescriptionResult.Location = new System.Drawing.Point(33, 274);
             this.lblDescriptionResult.Name = "lblDescriptionResult";
-            this.lblDescriptionResult.Size = new System.Drawing.Size(0, 28);
+            this.lblDescriptionResult.Size = new System.Drawing.Size(450, 210);
             this.lblDescriptionResult.TabIndex = 9;
             // 
             // btnLoad
@@ -141,19 +141,20 @@
             this.btnLoad.BackColor = System.Drawing.Color.SandyBrown;
             this.btnLoad.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnLoad.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnLoad.Location = new System.Drawing.Point(398, 506);
+            this.btnLoad.Location = new System.Drawing.Point(398, 595);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(115, 43);
             this.btnLoad.TabIndex = 44;
             this.btnLoad.Text = "Зареди";
             this.btnLoad.UseVisualStyleBackColor = false;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click_1);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Linen;
-            this.ClientSize = new System.Drawing.Size(525, 561);
+            this.ClientSize = new System.Drawing.Size(525, 650);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.lblDescriptionResult);
             this.Controls.Add(this.lblDescription);
