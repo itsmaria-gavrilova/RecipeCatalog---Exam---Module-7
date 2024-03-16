@@ -32,10 +32,6 @@ namespace RecipeCatalog___Exam___Module_7
             this.form2 = new Form2();
             rbAdmin.Checked = true;
             rbAdd.Checked = true;
-            dgvProduct.Enabled = false;
-            dgvProductType.Enabled = false;
-            dgvRecipe.Enabled = false;
-            dgvRecipeType.Enabled = false;
             AddComboBoxItems();
         }
         private void button1_Click(object sender, EventArgs e)
@@ -301,8 +297,8 @@ namespace RecipeCatalog___Exam___Module_7
             btnAdd.Visible = true;
             btnDelete.Visible = true;
             btnUpdate.Visible = true;
-            gbProductRecipe.Visible = true;
-            lbl1.Visible = true;
+            gbProductRecipe.Visible = false;
+            lbl1.Visible = false;
             lbl2.Visible = false;
             lbl3.Visible = false;
             lbl4.Visible = false;
@@ -310,12 +306,11 @@ namespace RecipeCatalog___Exam___Module_7
             rbProduct.Visible = true;
             rbRecipe.Visible = true;
             txb2.Visible = false;
-            txb1.Visible = true;
+            txb1.Visible = false;
             txb3.Visible = false;
             txb4.Visible = false;
             rtxbDesc.Visible = false;
-            lblEnterData.Visible = true;
-            lblEnterData.Text = "Въведи име:";
+            lblEnterData.Visible = false;
             lblDescription.Visible = false;
             CbRecipeType.Visible = false;
             btnGetAll.Visible = false;
