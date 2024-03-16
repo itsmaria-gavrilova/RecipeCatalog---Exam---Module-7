@@ -122,19 +122,19 @@ namespace RecipeCatalog___Exam___Module_7
         {
             if (rbProduct.Checked)
             {
-                Product update = productController.Get(int.Parse(txb1.Text));
+                Product update = productController.GetByName(txb1.Text);
                 update.Price = double.Parse(txb2.Text);
-                update.TypeId = productTypeController.Get(int.Parse(txb3.Text)).Id;
+                update.TypeId = productTypeController.GetByName(txb3.Text);
                 productController.Update(update);
                 UpdateGrid();
                 ResetSelect();
             }
             else if (rbRecipe.Checked)
             {
-                Recipe update = recipeController.Get(int.Parse(txb1.Text));
+                Recipe update = recipeController.GetByName(txb1.Text);
                 update.Kcal = int.Parse(txb2.Text);
                 update.Rating = int.Parse(txb3.Text);
-                update.TypeId = recipeTypeController.Get(int.Parse(txb4.Text)).Id;
+                update.TypeId = recipeTypeController.GetByName(txb4.Text);
                 update.Description = rtxbDesc.Text;
                 recipeController.Update(update);
                 UpdateGrid();
