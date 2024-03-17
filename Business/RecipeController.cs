@@ -90,10 +90,10 @@ namespace Business
             using (dbContext = new RecipeCatalogDbContext())
             {
                 double totalPrice = 0;
-                List<Product_Recipe> recipeProducts = dbContext.Products_Recipes.Where(x => x.RecipeId == recipe.Id).ToList();
-                for (int i = 0; i < recipeProducts.Count; i++)
+                List<string> products = this.GetProductsByRecipe(recipe.Name);
+                foreach (var item in products)
                 {
-                    Product product = (Product)dbContext.Products.Where(x => x.Id == recipeProducts[i].ProductId);
+                    Product product = productController.GetByName(item);
                     totalPrice += product.Price;
                 }
                 return totalPrice;
@@ -103,20 +103,30 @@ namespace Business
         {
             return this.GetAll().Where(x => x.Name == name).First();
         }
-        //public List<string> GetProductsByRecipe(string recipeName)
-        //{
-        //    int id = this.GetByName(recipeName);
-        //    List<string> productsByRecipe = new List<string>();
-        //    List<int> productIDs = new List<int>();
-        //    foreach(var item in dbContext.Products_Recipes.Where(x => x.RecipeId == id).ToList())
-        //    {
-        //        productIDs.Add(item.ProductId);
-        //    }
-        //    foreach(var item in productIDs)
-        //    {
-        //        productsByRecipe.Add(productController.Get(item).Name);
-        //    }
-        //    return productsByRecipe;
-        //}
+        public List<string> GetProductsByRecipe(string recipeName)
+        {
+            int id = this.GetByName(recipeName).Id;
+            List<string> productsByRecipe = new List<string>();
+            List<int> productIDs = new List<int>();
+            List<Product_Recipe> pr = dbContext.Products_Recipes.Where(x => x.RecipeId == id).ToList();
+            foreach (var item in pr)
+            {
+                productIDs.Add(item.ProductId);
+            }
+            foreach (var item in productIDs)
+            {
+                productsByRecipe.Add(productController.Get(item).Name);
+            }
+            return productsByRecipe;
+        }
+
+        public void AddProductRecipe(Product_Recipe pr)
+        {
+            using (dbContext = new RecipeCatalogDbContext())
+            {
+                dbContext.Products_Recipes.Add(pr);
+                dbContext.SaveChanges();
+            }
+        }
     }
 }

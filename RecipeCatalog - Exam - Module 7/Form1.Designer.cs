@@ -83,8 +83,8 @@
             this.typeIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.recipeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productControllerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.rtbProducts = new System.Windows.Forms.RichTextBox();
             this.lblProducts = new System.Windows.Forms.Label();
+            this.clbProducts = new System.Windows.Forms.CheckedListBox();
             this.gbProductRecipe.SuspendLayout();
             this.gbaAminCust.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductType)).BeginInit();
@@ -391,7 +391,7 @@
             // 
             this.lsBoxRecipes.FormattingEnabled = true;
             this.lsBoxRecipes.ItemHeight = 15;
-            this.lsBoxRecipes.Location = new System.Drawing.Point(219, 221);
+            this.lsBoxRecipes.Location = new System.Drawing.Point(219, 218);
             this.lsBoxRecipes.Name = "lsBoxRecipes";
             this.lsBoxRecipes.Size = new System.Drawing.Size(198, 259);
             this.lsBoxRecipes.TabIndex = 45;
@@ -639,14 +639,6 @@
             // 
             this.productControllerBindingSource.DataSource = typeof(Business.ProductController);
             // 
-            // rtbProducts
-            // 
-            this.rtbProducts.Location = new System.Drawing.Point(359, 370);
-            this.rtbProducts.Name = "rtbProducts";
-            this.rtbProducts.Size = new System.Drawing.Size(161, 132);
-            this.rtbProducts.TabIndex = 54;
-            this.rtbProducts.Text = "";
-            // 
             // lblProducts
             // 
             this.lblProducts.AutoSize = true;
@@ -658,15 +650,23 @@
             this.lblProducts.TabIndex = 55;
             this.lblProducts.Text = "Продукти:";
             // 
+            // clbProducts
+            // 
+            this.clbProducts.FormattingEnabled = true;
+            this.clbProducts.Location = new System.Drawing.Point(360, 370);
+            this.clbProducts.Name = "clbProducts";
+            this.clbProducts.Size = new System.Drawing.Size(127, 130);
+            this.clbProducts.TabIndex = 56;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.ClientSize = new System.Drawing.Size(1154, 537);
+            this.Controls.Add(this.clbProducts);
             this.Controls.Add(this.lsBoxRecipes);
             this.Controls.Add(this.lblProducts);
-            this.Controls.Add(this.rtbProducts);
             this.Controls.Add(this.dgvRecipe);
             this.Controls.Add(this.dgvProduct);
             this.Controls.Add(this.dgvRecipeType);
@@ -774,7 +774,7 @@
         private DataGridViewTextBoxColumn ratingDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn typeIdDataGridViewTextBoxColumn1;
         private BindingSource recipeBindingSource;
-        private RichTextBox rtbProducts;
         private Label lblProducts;
+        private CheckedListBox clbProducts;
     }
 }

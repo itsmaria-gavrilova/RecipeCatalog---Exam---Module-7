@@ -39,6 +39,10 @@
             this.lblDescription = new System.Windows.Forms.Label();
             this.lblDescriptionResult = new System.Windows.Forms.Label();
             this.btnLoad = new System.Windows.Forms.Button();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.lblPriceResult = new System.Windows.Forms.Label();
+            this.lblProducts = new System.Windows.Forms.Label();
+            this.lblProductsResult = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblHeading
@@ -128,8 +132,7 @@
             this.lblDescription.Text = "Начин на приготвяне:";
             // 
             // lblDescriptionResult
-            //
-            this.lblDescriptionResult.AutoSize = false;
+            // 
             this.lblDescriptionResult.Font = new System.Drawing.Font("Sitka Display", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblDescriptionResult.Location = new System.Drawing.Point(33, 274);
             this.lblDescriptionResult.Name = "lblDescriptionResult";
@@ -149,12 +152,54 @@
             this.btnLoad.UseVisualStyleBackColor = false;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click_1);
             // 
+            // lblPrice
+            // 
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Font = new System.Drawing.Font("Sitka Display", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPrice.Location = new System.Drawing.Point(33, 504);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(57, 28);
+            this.lblPrice.TabIndex = 45;
+            this.lblPrice.Text = "Цена:";
+            // 
+            // lblPriceResult
+            // 
+            this.lblPriceResult.AutoSize = true;
+            this.lblPriceResult.Font = new System.Drawing.Font("Sitka Display", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPriceResult.Location = new System.Drawing.Point(96, 504);
+            this.lblPriceResult.Name = "lblPriceResult";
+            this.lblPriceResult.Size = new System.Drawing.Size(0, 28);
+            this.lblPriceResult.TabIndex = 46;
+            // 
+            // lblProducts
+            // 
+            this.lblProducts.AutoSize = true;
+            this.lblProducts.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblProducts.Location = new System.Drawing.Point(323, 48);
+            this.lblProducts.Name = "lblProducts";
+            this.lblProducts.Size = new System.Drawing.Size(80, 23);
+            this.lblProducts.TabIndex = 47;
+            this.lblProducts.Text = "Продукти:";
+            // 
+            // lblProductsResult
+            // 
+            this.lblProductsResult.AutoSize = true;
+            this.lblProductsResult.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblProductsResult.Location = new System.Drawing.Point(323, 82);
+            this.lblProductsResult.Name = "lblProductsResult";
+            this.lblProductsResult.Size = new System.Drawing.Size(0, 23);
+            this.lblProductsResult.TabIndex = 48;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Linen;
             this.ClientSize = new System.Drawing.Size(525, 650);
+            this.Controls.Add(this.lblProductsResult);
+            this.Controls.Add(this.lblProducts);
+            this.Controls.Add(this.lblPriceResult);
+            this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.lblDescriptionResult);
             this.Controls.Add(this.lblDescription);
@@ -186,5 +231,9 @@
         private Label lblDescription;
         private Label lblDescriptionResult;
         private Button btnLoad;
+        private Label lblPrice;
+        private Label lblPriceResult;
+        private Label lblProducts;
+        private Label lblProductsResult;
     }
 }

@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace RecipeCatalog___Exam___Module_7
 {
@@ -20,7 +21,7 @@ namespace RecipeCatalog___Exam___Module_7
         private RecipeTypeController recipeTypeController;
         private ProductController productController;
         private ProductTypeController productTypeController;
-        private ProductRecipeController prController;
+        private int editID = 0;
         private Form2 form2;
         public Form1()
         {
@@ -33,7 +34,99 @@ namespace RecipeCatalog___Exam___Module_7
             rbAdmin.Checked = true;
             rbAdd.Checked = true;
             AddComboBoxItems();
+            AddCheckedListBoxItems();
+            //AddData();
         }
+        //private void AddData()
+        //{
+        //    RecipeType type1 = new RecipeType();
+        //    type1.Name = "паста";
+        //    recipeTypeController.Add(type1);
+        //    RecipeType type2 = new RecipeType();
+        //    type2.Name = "салата";
+        //    recipeTypeController.Add(type2);
+        //    RecipeType type3 = new RecipeType();
+        //    type3.Name = "скара";
+        //    recipeTypeController.Add(type3);
+        //    RecipeType type4 = new RecipeType();
+        //    type4.Name = "десерт";
+        //    recipeTypeController.Add(type4);
+        //    RecipeType type5 = new RecipeType();
+        //    type5.Name = "печиво";
+        //    recipeTypeController.Add(type5);
+        //    RecipeType type6 = new RecipeType();
+        //    type6.Name = "супа";
+        //    recipeTypeController.Add(type6);
+        //    RecipeType type7 = new RecipeType();
+        //    type7.Name = "разядка";
+        //    recipeTypeController.Add(type7);
+        //    RecipeType type8 = new RecipeType();
+        //    type8.Name = "яхнии";
+        //    recipeTypeController.Add(type8);
+        //    RecipeType type9 = new RecipeType();
+        //    type9.Name = "тестени";
+        //    recipeTypeController.Add(type9);
+        //    RecipeType type10 = new RecipeType();
+        //    type10.Name = "сос";
+        //    recipeTypeController.Add(type10);
+        //    RecipeType type11 = new RecipeType();
+        //    type11.Name = "риба";
+        //    recipeTypeController.Add(type11);
+
+        //    ProductType ptype1 = new ProductType();
+        //    ptype1.Name = "плод";
+        //    productTypeController.Add(ptype1);
+        //    ProductType ptype2 = new ProductType();
+        //    ptype2.Name = "зеленчук";
+        //    productTypeController.Add(ptype2);
+        //    ProductType ptype3 = new ProductType();
+        //    ptype3.Name = "вариво";
+        //    productTypeController.Add(ptype3);
+        //    ProductType ptype4 = new ProductType();
+        //    ptype4.Name = "месо";
+        //    productTypeController.Add(ptype4);
+        //    ProductType ptype5 = new ProductType();
+        //    ptype5.Name = "тестени";
+        //    productTypeController.Add(ptype5);
+        //    ProductType ptype6 = new ProductType();
+        //    ptype6.Name = "захарни";
+        //    productTypeController.Add(ptype6);
+        //    ProductType ptype7 = new ProductType();
+        //    ptype7.Name = "зърнени";
+        //    productTypeController.Add(ptype7);
+        //    ProductType ptype8 = new ProductType();
+        //    ptype8.Name = "морска храна";
+        //    productTypeController.Add(ptype8);
+        //    ProductType ptype9 = new ProductType();
+        //    ptype9.Name = "млечни";
+        //    productTypeController.Add(ptype9);
+
+        //    Product product1 = new Product();
+        //    product1.Name = "краставица";
+        //    product1.Price = 0.7;
+        //    product1.TypeId = 2;
+        //    productController.Add(product1);
+        //    Product product2 = new Product();
+        //    product2.Name = "домат";
+        //    product2.Price = 0.8;
+        //    product2.TypeId = 2;
+        //    productController.Add(product2);
+        //    Product product3 = new Product();
+        //    product3.Name = "хляб";
+        //    product3.Price = 1.2;
+        //    product3.TypeId = 5;
+        //    productController.Add(product3);
+        //    Product product4 = new Product();
+        //    product4.Name = "салам";
+        //    product4.Price = 2.3;
+        //    product4.TypeId = 4;
+        //    productController.Add(product4);
+        //    Product product5 = new Product();
+        //    product5.Name = "сирене";
+        //    product5.Price = 5.4;
+        //    product5.TypeId = 9;
+        //    productController.Add(product5);
+        //}
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -60,6 +153,7 @@ namespace RecipeCatalog___Exam___Module_7
                 product.Price = double.Parse(txb2.Text);
                 product.TypeId = productTypeController.GetByName(txb3.Text);
                 productController.Add(product);
+                clbProducts.Items.Add(product.Name);
             }
             else if (rbRecipe.Checked)
             {
@@ -77,17 +171,13 @@ namespace RecipeCatalog___Exam___Module_7
                 recipe.TypeId = recipeTypeController.GetByName(txb4.Text);
                 recipe.Description = rtxbDesc.Text;
                 recipeController.Add(recipe);
-                List<string> productNames = rtbProducts.Text.Split("\n").ToList();
-                Product_Recipe product_Recipe = new Product_Recipe();
-                //List<Product> products = new List<Product>();
-                foreach (string item in productNames)
+                foreach(var item in clbProducts.CheckedItems)
                 {
-                    Product product = productController.GetByName(item);
-                    product_Recipe.Recipe = recipe;
-                    product_Recipe.Product = product;
-                    product_Recipe.RecipeId = recipe.Id;
-                    product_Recipe.ProductId = product.Id;
-                    prController.Add(product_Recipe);
+                    int productId = productController.GetByName(item.ToString()).Id;
+                    Product_Recipe pr = new Product_Recipe();
+                    pr.ProductId = productId;
+                    pr.RecipeId = recipe.Id;
+                    recipeController.AddProductRecipe(pr);
                 }
             }
             UpdateGrid();
@@ -118,24 +208,33 @@ namespace RecipeCatalog___Exam___Module_7
         {
             if (rbProduct.Checked)
             {
-                Product update = productController.GetByName(txb1.Text);
-                update.Price = double.Parse(txb2.Text);
-                update.TypeId = productTypeController.GetByName(txb3.Text);
-                productController.Update(update);
+                Product editedProduct = new Product();
+                editedProduct.Id = editID;
+                editedProduct.Name = txb1.Text;
+                editedProduct.Price = double.Parse(txb2.Text);
+                editedProduct.TypeId = productTypeController.GetByName(txb3.Text);
+                productController.Update(editedProduct);
                 UpdateGrid();
-                ResetSelect();
+                dgvProduct.ClearSelection();
+                dgvProduct.Enabled = true;
+
             }
             else if (rbRecipe.Checked)
             {
-                Recipe update = recipeController.GetByName(txb1.Text);
-                update.Kcal = int.Parse(txb2.Text);
-                update.Rating = int.Parse(txb3.Text);
-                update.TypeId = recipeTypeController.GetByName(txb4.Text);
-                update.Description = rtxbDesc.Text;
-                recipeController.Update(update);
+                Recipe editedRecipe = new Recipe();
+                editedRecipe.Id = editID;
+                editedRecipe.Name = txb1.Text;
+                editedRecipe.Kcal = int.Parse(txb2.Text);
+                editedRecipe.Rating = int.Parse(txb3.Text);
+                editedRecipe.TypeId = recipeTypeController.GetByName(txb4.Text);
+                editedRecipe.Description = rtxbDesc.Text;
+                recipeController.Update(editedRecipe);
                 UpdateGrid();
-                ResetSelect();
+                dgvRecipe.ClearSelection();
+                dgvRecipe.Enabled = true;
             }
+            ClearTextBoxes();
+            rbUpdate.Checked = false;
         }
 
         private void btnTop5_Click(object sender, EventArgs e)
@@ -176,6 +275,9 @@ namespace RecipeCatalog___Exam___Module_7
             rbAdd.Visible = true;
             rbDelete.Visible = true;
             rbUpdate.Visible = true;
+            lblDescription.Visible = true;
+            lblProducts.Visible = true;
+            clbProducts.Visible = true;
         }
 
         private void rbCustomer_CheckedChanged_1(object sender, EventArgs e)
@@ -207,7 +309,7 @@ namespace RecipeCatalog___Exam___Module_7
             rbAdd.Visible = false;
             rbDelete.Visible = false;
             rbUpdate.Visible = false;
-            rtbProducts.Visible = false;
+            clbProducts.Visible = false;
             lblProducts.Visible = false;
         }
 
@@ -221,7 +323,7 @@ namespace RecipeCatalog___Exam___Module_7
             txb4.Visible = false;
             rtxbDesc.Visible = false;
             lblProducts.Visible = false;
-            rtbProducts.Visible = false;
+            clbProducts.Visible = false;
             if (rbUpdate.Checked)
             {
                 lbl4.Visible = false;
@@ -230,7 +332,7 @@ namespace RecipeCatalog___Exam___Module_7
                 txb4.Visible = false;
                 rtxbDesc.Visible = false;
                 lblProducts.Visible = false;
-                rtbProducts.Visible = false;
+                clbProducts.Visible = false;
             }
         }
 
@@ -244,7 +346,7 @@ namespace RecipeCatalog___Exam___Module_7
             txb4.Visible = true;
             rtxbDesc.Visible = true;
             lblProducts.Visible = true;
-            rtbProducts.Visible = true;
+            clbProducts.Visible = true;
             if (rbDelete.Checked)
             {
                 lbl4.Visible = false;
@@ -265,7 +367,7 @@ namespace RecipeCatalog___Exam___Module_7
                 rtxbDesc.Visible = true;
                 lblDescription.Visible = true;
                 lblProducts.Visible = true;
-                rtbProducts.Visible = true;
+                clbProducts.Visible = true;
             }
             btnAdd.Visible = true;
             btnDelete.Visible = true;
@@ -322,26 +424,33 @@ namespace RecipeCatalog___Exam___Module_7
             btnUpdate.Enabled = false;
             btnAdd.Enabled = false;
             lblProducts.Visible = false;
-            rtbProducts.Visible = false;
+            clbProducts.Visible = false;
         }
 
         private void rbUpdate_CheckedChanged(object sender, EventArgs e)
         {
             if (rbProduct.Checked)
             {
-                lbl4.Visible = false;
-                lbl5.Visible = false;
-                lblDescription.Visible = false;
-                txb4.Visible = false;
-                rtxbDesc.Visible = false;
-                lblProducts.Visible = false;
-                rtbProducts.Visible = false;
+                if (dgvProduct.SelectedRows.Count > 0)
+                {
+                    var item = dgvProduct.SelectedRows[0].Cells;
+                    var id = int.Parse(item[0].Value.ToString());
+                    editID = id;
+                    UpdateProductTextBoxes(id);
+                    dgvProduct.Enabled = false;
+                }
             }
-            lbl4.Visible = true;
-            lbl5.Visible = true;
-            txb4.Visible = true;
-            rtxbDesc.Visible = true;
-            lblDescription.Visible = true;
+            else if (rbRecipe.Checked)
+            {
+                if (dgvRecipe.SelectedRows.Count > 0)
+                {
+                    var item = dgvRecipe.SelectedRows[0].Cells;
+                    var id = int.Parse(item[0].Value.ToString());
+                    editID = id;
+                    UpdateRecipeTextBoxes(id);
+                    dgvRecipe.Enabled = false;
+                }
+            }
             btnAdd.Visible = true;
             btnDelete.Visible = true;
             btnUpdate.Visible = true;
@@ -365,8 +474,6 @@ namespace RecipeCatalog___Exam___Module_7
             btnDelete.Enabled = false;
             btnUpdate.Enabled = true;
             btnAdd.Enabled = false;
-            lblProducts.Visible = true;
-            rtbProducts.Visible = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -399,14 +506,29 @@ namespace RecipeCatalog___Exam___Module_7
             txb3.Clear();
             txb4.Clear();
             rtxbDesc.Clear();
-            rtbProducts.Clear();
         }
         private void ResetSelect()
         {
             dgvProduct.ClearSelection();
             dgvRecipe.ClearSelection();
-        }
 
+        }
+        private void UpdateProductTextBoxes(int id)
+        {
+            Product update = productController.Get(id);
+            txb1.Text = update.Name;
+            txb2.Text = update.Price.ToString();
+            txb3.Text = productTypeController.Get(update.TypeId).Name;
+        }
+        private void UpdateRecipeTextBoxes(int id)
+        {
+            Recipe update = recipeController.Get(id);
+            txb1.Text = update.Name;
+            txb2.Text = update.Kcal.ToString();
+            txb3.Text = update.Rating.ToString();
+            txb4.Text = recipeTypeController.Get(update.TypeId).Name;
+            rtxbDesc.Text = update.Description;
+        }
         private void lsBoxRecipes_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             Recipe recipe = this.recipeController.GetByName(lsBoxRecipes.SelectedItem.ToString());
@@ -441,7 +563,14 @@ namespace RecipeCatalog___Exam___Module_7
                 CbRecipeType.Items.Add(item.Name);
             }
         }
-
+        private void AddCheckedListBoxItems()
+        {
+            List<Product> products = productController.GetAll();
+            foreach (var item in products)
+            {
+                clbProducts.Items.Add(item.Name);
+            }
+        }
         private void btnSort_Click_1(object sender, EventArgs e)
         {
             lsBoxRecipes.Items.Clear();
