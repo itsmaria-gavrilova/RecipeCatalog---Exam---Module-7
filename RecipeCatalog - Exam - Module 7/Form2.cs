@@ -39,6 +39,7 @@ namespace RecipeCatalog___Exam___Module_7
             lblTypeResult.Text = recipeTypeController.Get(recipe.TypeId).Name;
             lblRecipeName.Text = recipe.Name.ToString();
             lblPriceResult.Text = recipeController.CalculatePrice(recipe).ToString();
+            lblProductsResult.Text = String.Join('\n', recipeController.GetProductsByRecipe(recipe.Name));
         }
     }
 }

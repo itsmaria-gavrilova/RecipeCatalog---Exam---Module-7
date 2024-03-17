@@ -21,6 +21,7 @@ namespace RecipeCatalog___Exam___Module_7
         private RecipeTypeController recipeTypeController;
         private ProductController productController;
         private ProductTypeController productTypeController;
+        private RecipeCatalogDbContext dbContext;
         private int editID = 0;
         private Form2 form2;
         public Form1()

@@ -105,10 +105,10 @@ namespace Business
         }
         public List<string> GetProductsByRecipe(string recipeName)
         {
-            int id = this.GetByName(recipeName).Id;
-            List<string> productsByRecipe = new List<string>();
+            Recipe recipe = this.GetByName(recipeName);
             List<int> productIDs = new List<int>();
-            List<Product_Recipe> pr = dbContext.Products_Recipes.Where(x => x.RecipeId == id).ToList();
+            List<string> productsByRecipe = new List<string>();
+            List<Product_Recipe> pr = recipe.ProductsRecipes.ToList();
             foreach (var item in pr)
             {
                 productIDs.Add(item.ProductId);
