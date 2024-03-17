@@ -364,7 +364,7 @@
             this.btnSort.Name = "btnSort";
             this.btnSort.Size = new System.Drawing.Size(115, 82);
             this.btnSort.TabIndex = 43;
-            this.btnSort.Text = "Сортирай";
+            this.btnSort.Text = "Сортирай по калории";
             this.btnSort.UseVisualStyleBackColor = false;
             this.btnSort.Click += new System.EventHandler(this.btnSort_Click_1);
             // 
@@ -664,8 +664,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.ClientSize = new System.Drawing.Size(1154, 537);
-            this.Controls.Add(this.clbProducts);
             this.Controls.Add(this.lsBoxRecipes);
+            this.Controls.Add(this.clbProducts);
             this.Controls.Add(this.lblProducts);
             this.Controls.Add(this.dgvRecipe);
             this.Controls.Add(this.dgvProduct);

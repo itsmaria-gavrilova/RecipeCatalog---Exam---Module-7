@@ -33,18 +33,6 @@ namespace Business
                 dbContext.SaveChanges();
             }
         }
-        public void Update(RecipeType recipeType)
-        {
-            using (dbContext = new RecipeCatalogDbContext())
-            {
-                var item = dbContext.RecipeTypes.Find(recipeType.Id);
-                if (item != null)
-                {
-                    dbContext.Entry(item).CurrentValues.SetValues(recipeType);
-                    dbContext.SaveChanges();
-                }
-            }
-        }
         public void Delete(int id)
         {
             using (dbContext = new RecipeCatalogDbContext())
