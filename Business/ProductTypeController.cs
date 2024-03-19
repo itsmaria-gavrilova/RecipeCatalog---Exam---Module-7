@@ -11,6 +11,7 @@ namespace Business
     public class ProductTypeController
     {
         private RecipeCatalogDbContext dbContext;
+        //Метод, който извежда всички типове продукти в базата данни
         public List<ProductType> GetAll()
         {
             using (dbContext = new RecipeCatalogDbContext())
@@ -18,6 +19,7 @@ namespace Business
                 return dbContext.ProductTypes.ToList();
             }
         }
+        //Метод, който намира и извежда тип продукт в базата данни по неговото ИД
         public ProductType Get(int id)
         {
             using (dbContext = new RecipeCatalogDbContext())
@@ -25,6 +27,7 @@ namespace Business
                 return dbContext.ProductTypes.Find(id);
             }
         }
+        //Метод, който добавя тип продукт в базата данни
         public void Add(ProductType productType)
         {
             using (dbContext = new RecipeCatalogDbContext())
@@ -33,6 +36,7 @@ namespace Business
                 dbContext.SaveChanges();
             }
         }
+        //Метод, който намира и изтрива продукт от базата данни по неговото ИД
         public void Delete(int id)
         {
             using (dbContext = new RecipeCatalogDbContext())
@@ -45,9 +49,9 @@ namespace Business
                 }
             }
         }
+        //Метод, който намира и извежда тип продукт от базата данни по неговото име
         public int GetByName(string name)
         {
             return this.GetAll().Where(x => x.Name == name).First().Id;
         }
     }
-}

@@ -13,6 +13,7 @@ namespace Business
     public class ProductController
     {
         private RecipeCatalogDbContext dbContext;
+        //Метод, който връща всички продукти в базата данни
         public List<Product> GetAll()
         {
             using (dbContext = new RecipeCatalogDbContext())
@@ -20,6 +21,7 @@ namespace Business
                 return dbContext.Products.ToList();
             }
         }
+        //Метод, който намира и връща продукт по неговото ИД
         public Product Get(int id)
         {
             using (dbContext = new RecipeCatalogDbContext())
@@ -27,6 +29,7 @@ namespace Business
                 return dbContext.Products.Find(id);
             }
         }
+        //Метод, който добавя продукт в базата данни
         public void Add(Product product)
         {
             using (dbContext = new RecipeCatalogDbContext())
@@ -35,6 +38,7 @@ namespace Business
                 dbContext.SaveChanges();
             }
         }
+        //Метод, който актуалицира информацията за продукт, който вече съществува в базата данни
         public void Update(Product product)
         {
             using (dbContext = new RecipeCatalogDbContext())
@@ -47,6 +51,7 @@ namespace Business
                 }
             }
         }
+        //Метод, който намира и изтрива продукт от базата данни по неговото ИД
         public void Delete(int id)
         {
             using (dbContext = new RecipeCatalogDbContext())
