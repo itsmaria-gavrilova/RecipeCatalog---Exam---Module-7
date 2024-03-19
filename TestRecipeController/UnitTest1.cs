@@ -1,7 +1,7 @@
 using Business;
 using Data.Models;
 
-namespace TectRedipeController
+namespace TestRecipeController
 {
     //maria
     public class Tests
@@ -236,7 +236,34 @@ namespace TectRedipeController
         }
 
         //maria
-        //getallbytype
-        //getproductsbyrecipe
+        [Test]
+        public void MethodGetAllByTypeReturnsAllRecipesFromGivenType()
+        {
+            // Arrange
+            RecipeController controller = new RecipeController();
+            RecipeTypeController rtController = new RecipeTypeController();
+            string type = "??????";
+
+            // Act
+            RecipeType recipeType = rtController.Get(rtController.GetByName(type));
+            var result = controller.GetAllByType(recipeType.Name);
+
+            // Assert
+            Assert.AreEqual(8, result.Count);
+
+        }
+        [Test]
+        public void MethodGetProductsByRecipeReturnsAllProductsInGivenRecipe()
+        {
+            // Arrange
+            RecipeController controller = new RecipeController();
+            Recipe recipe = controller.GetByName("testRecipe");
+
+            // Act
+            var result = controller.GetProductsByRecipe(recipe.Name);
+
+            // Assert
+            Assert.AreEqual(2, result.Count);
+        }
     }
 }

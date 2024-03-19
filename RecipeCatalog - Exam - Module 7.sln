@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProductController", "Te
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestRecipeTypeController", "TestRecipeTypeController\TestRecipeTypeController.csproj", "{C11077B9-DB9E-4E0B-8EEA-5B42B97ECE30}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestRecipeController", "TectRedipeController\TestRecipeController.csproj", "{FC65DD37-3647-40D1-9981-765DB01A1435}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRecipeController", "TestRecipeController\TestRecipeController.csproj", "{31E634F8-23CC-4DD4-B2CB-BEAA879F3CA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +47,10 @@ Global
 		{C11077B9-DB9E-4E0B-8EEA-5B42B97ECE30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C11077B9-DB9E-4E0B-8EEA-5B42B97ECE30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C11077B9-DB9E-4E0B-8EEA-5B42B97ECE30}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FC65DD37-3647-40D1-9981-765DB01A1435}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FC65DD37-3647-40D1-9981-765DB01A1435}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FC65DD37-3647-40D1-9981-765DB01A1435}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FC65DD37-3647-40D1-9981-765DB01A1435}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31E634F8-23CC-4DD4-B2CB-BEAA879F3CA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31E634F8-23CC-4DD4-B2CB-BEAA879F3CA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31E634F8-23CC-4DD4-B2CB-BEAA879F3CA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31E634F8-23CC-4DD4-B2CB-BEAA879F3CA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
