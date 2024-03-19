@@ -105,6 +105,8 @@ namespace TectRedipeController
             Assert.AreEqual(11, result.Id);
         }
 
+        //gergana
+
         [Test]
         public void MethodSortByCaloriesSortsRecipesByCalories()
         {
@@ -128,11 +130,11 @@ namespace TectRedipeController
             recipe3.Rating = 3;
             recipe3.TypeId = 4;
             recipe3.Description = "testRecipe3Description";
+
+            // Act
             controller.Add(recipe1);
             controller.Add(recipe2);
             controller.Add(recipe3);
-
-            // Act
             var result = controller.SortByCalories();
 
             // Assert
@@ -140,6 +142,43 @@ namespace TectRedipeController
             Assert.AreEqual("testRecipe2", result.Last().Name);
         }
 
+        [Test]
+        public void MethodTop5ByRatingReturns5HighestRatedRecipes()
+        {
+            // Arrange
+            RecipeController controller = new RecipeController();
+            Recipe recipe4 = new Recipe();
+            recipe4.Name = "testRecipe4";
+            recipe4.Kcal = 200;
+            recipe4.Rating = 7;
+            recipe4.TypeId = 2;
+            recipe4.Description = "testRecipe1Description";
+            Recipe recipe5 = new Recipe();
+            recipe5.Name = "testRecipe5";
+            recipe5.Kcal = 489;
+            recipe5.Rating = 8;
+            recipe5.TypeId = 5;
+            recipe5.Description = "testRecipe2Description";
+            Recipe recipe6 = new Recipe();
+            recipe6.Name = "testRecipe6";
+            recipe6.Kcal = 366;
+            recipe6.Rating = 9;
+            recipe6.TypeId = 4;
+            recipe6.Description = "testRecipe3Description";
 
+
+            // Act
+            controller.Add(recipe4);
+            controller.Add(recipe5);
+            controller.Add(recipe6);
+            var result = controller.Top5ByRating();
+
+            // Assert
+            Assert.AreEqual("testRecipe6", result[0].Name);
+            Assert.AreEqual("testRecipe5", result[1].Name);
+            Assert.AreEqual("testRecipe4", result[2].Name);
+            Assert.AreEqual("testRecipe1", result[3].Name);
+            Assert.AreEqual("testRecipe2", result[4].Name);
+        }
     }
 }

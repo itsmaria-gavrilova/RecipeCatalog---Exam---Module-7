@@ -9,13 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{457EB168-E11D-4A93-967B-680E928456F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProductTypeController", "TestProductTypeController\TestProductTypeController.csproj", "{9F232B83-787C-40DC-AF3C-DAD2D542AEE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProductTypeController", "TestProductTypeController\TestProductTypeController.csproj", "{9F232B83-787C-40DC-AF3C-DAD2D542AEE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProductController", "TestProductController\TestProductController.csproj", "{24FBA089-8625-46C3-884D-0D94E8CFB11E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProductController", "TestProductController\TestProductController.csproj", "{24FBA089-8625-46C3-884D-0D94E8CFB11E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRecipeTypeController", "TestRecipeTypeController\TestRecipeTypeController.csproj", "{C11077B9-DB9E-4E0B-8EEA-5B42B97ECE30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestRecipeTypeController", "TestRecipeTypeController\TestRecipeTypeController.csproj", "{C11077B9-DB9E-4E0B-8EEA-5B42B97ECE30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRedipeController", "TectRedipeController\TestRedipeController.csproj", "{FC65DD37-3647-40D1-9981-765DB01A1435}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestRecipeController", "TectRedipeController\TestRecipeController.csproj", "{FC65DD37-3647-40D1-9981-765DB01A1435}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
