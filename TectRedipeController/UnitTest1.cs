@@ -105,39 +105,41 @@ namespace TectRedipeController
             Assert.AreEqual(11, result.Id);
         }
 
-        //[Test]
-        //public void MethodSortByCaloriesSortsRecipesByCalories()
-        //{
-        //    // Arrange
-        //    RecipeController controller = new RecipeController();
-        //    Recipe recipe1 = new Recipe();
-        //    recipe1.Name = "testRecipe1";
-        //    recipe1.Kcal = 200;
-        //    recipe1.Rating = 5;
-        //    recipe1.TypeId = 2;
-        //    recipe1.Description = "testRecipe1Description";
-        //    Recipe recipe2 = new Recipe();
-        //    recipe2.Name = "testRecipe2";
-        //    recipe2.Kcal = 489;
-        //    recipe2.Rating = 4;
-        //    recipe2.TypeId = 5;
-        //    recipe2.Description = "testRecipe2Description";
-        //    Recipe recipe3 = new Recipe();
-        //    recipe3.Name = "testRecipe3";
-        //    recipe3.Kcal = 366;
-        //    recipe3.Rating = 3;
-        //    recipe3.TypeId = 4;
-        //    recipe3.Description = "testRecipe3Description";
-        //    controller.Add(recipe1);
-        //    controller.Add(recipe2);
-        //    controller.Add(recipe3);
+        [Test]
+        public void MethodSortByCaloriesSortsRecipesByCalories()
+        {
+            // Arrange
+            RecipeController controller = new RecipeController();
+            Recipe recipe1 = new Recipe();
+            recipe1.Name = "testRecipe1";
+            recipe1.Kcal = 200;
+            recipe1.Rating = 5;
+            recipe1.TypeId = 2;
+            recipe1.Description = "testRecipe1Description";
+            Recipe recipe2 = new Recipe();
+            recipe2.Name = "testRecipe2";
+            recipe2.Kcal = 489;
+            recipe2.Rating = 4;
+            recipe2.TypeId = 5;
+            recipe2.Description = "testRecipe2Description";
+            Recipe recipe3 = new Recipe();
+            recipe3.Name = "testRecipe3";
+            recipe3.Kcal = 366;
+            recipe3.Rating = 3;
+            recipe3.TypeId = 4;
+            recipe3.Description = "testRecipe3Description";
+            controller.Add(recipe1);
+            controller.Add(recipe2);
+            controller.Add(recipe3);
 
-        //    // Act
-        //    var result = controller.SortByCalories();
+            // Act
+            var result = controller.SortByCalories();
 
-        //    // Assert
-        //    Assert.AreEqual("testRecipe1", result[0].Name);
-        //    Assert.AreEqual("UpdatedRecipe", result[1].Name);
-        //}
+            // Assert
+            Assert.AreEqual("testRecipe1", result.First().Name);
+            Assert.AreEqual("testRecipe2", result.Last().Name);
+        }
+
+
     }
 }
