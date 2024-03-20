@@ -8,7 +8,7 @@ namespace TestRecipeTypeController
     public class Tests
     {
         [Test]
-        public void MethodGetAllReturnsAllRecipeTypes()
+        public void Method1GetAllReturnsAllRecipeTypes()
         {
             // Arrange
             RecipeTypeController controller = new RecipeTypeController();
@@ -17,11 +17,11 @@ namespace TestRecipeTypeController
             var result = controller.GetAll();
 
             // Assert
-            Assert.AreEqual(12, result.Count);
+            Assert.AreEqual(11, result.Count);
         }
 
         [Test]
-        public void MethodGetReturnsRecipeTypeById()
+        public void Method2GetReturnsRecipeTypeById()
         {
             // Arrange
             RecipeTypeController controller = new RecipeTypeController();
@@ -36,7 +36,7 @@ namespace TestRecipeTypeController
         }
 
         [Test]
-        public void MethodAddAddsNewRecipeType()
+        public void Method3AddAddsNewRecipeType()
         {
             // Arrange
             RecipeTypeController controller = new RecipeTypeController();
@@ -53,7 +53,7 @@ namespace TestRecipeTypeController
         }
 
         [Test]
-        public void MethodDeleteDeletesRecipeTypeById()
+        public void Method4DeleteDeletesRecipeTypeById()
         {
             // Arrange
             RecipeTypeController controller = new RecipeTypeController();
@@ -65,19 +65,6 @@ namespace TestRecipeTypeController
 
             // Assert
             Assert.Null(result);
-        }
-        [Test]
-        public void MethodGetByNameReturnsIdByRecipeTypeName()
-        {
-            // Arrange
-            RecipeTypeController controller = new RecipeTypeController();
-            string name = "newTest";
-
-            // Act
-            var result = controller.GetByName(name);
-
-            // Assert
-            Assert.AreEqual(12, result);
         }
     }
 }

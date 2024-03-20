@@ -244,7 +244,7 @@ namespace RecipeCatalog___Exam___Module_7
         private void btnTop5_Click(object sender, EventArgs e)
         {
             lsBoxRecipes.Items.Clear();
-            List<Recipe> recipes = this.recipeController.Top5ByRating();
+            List<Recipe> recipes = this.recipeController.Top5ByRating(recipeController.GetAll());
             foreach (Recipe recipe in recipes)
             {
                 lsBoxRecipes.Items.Add(recipe.Name);
@@ -562,7 +562,7 @@ namespace RecipeCatalog___Exam___Module_7
         private void btnGetAllByType_Click_1(object sender, EventArgs e)
         {
             lsBoxRecipes.Items.Clear();
-            List<Recipe> recipes = this.recipeController.GetAllByType(CbRecipeType.SelectedItem.ToString());
+            List<Recipe> recipes = this.recipeController.GetAllByType(recipeController.GetAll(),CbRecipeType.SelectedItem.ToString());
             foreach (Recipe recipe in recipes)
             {
                 lsBoxRecipes.Items.Add(recipe.Name);
@@ -591,7 +591,7 @@ namespace RecipeCatalog___Exam___Module_7
         private void btnSort_Click_1(object sender, EventArgs e)
         {
             lsBoxRecipes.Items.Clear();
-            List<Recipe> recipes = this.recipeController.SortByCalories();
+            List<Recipe> recipes = this.recipeController.SortByCalories(recipeController.GetAll());
             foreach (Recipe recipe in recipes)
             {
                 lsBoxRecipes.Items.Add(recipe.Name);

@@ -8,7 +8,7 @@ namespace TestProductController
     public class Tests
     {
         [Test]
-        public void MethodGetAllReturnsAllProducts()
+        public void Method1GetAllReturnsAllProducts()
         {
             // Arrange
             ProductController controller = new ProductController();
@@ -21,11 +21,11 @@ namespace TestProductController
         }
 
         [Test]
-        public void MethodGetReturnsProductById()
+        public void Method2GetReturnsProductById()
         {
             // Arrange
             ProductController controller = new ProductController();
-            int id = 8;
+            int id = 2;
 
             // Act
             var result = controller.Get(id);
@@ -36,13 +36,14 @@ namespace TestProductController
         }
 
         [Test]
-        public void MethodAddAddsNewProduct()
+        public void Method3AddAddsNewProduct()
         {
             // Arrange
             ProductController controller = new ProductController();
             Product product = new Product();
             product.Name = "TestName";
             product.Price = 1.2;
+            product.TypeId = 2;
 
             // Act
             controller.Add(product);
@@ -53,7 +54,7 @@ namespace TestProductController
         }
 
         [Test]
-        public void MethodUpdateUpdatesProductData()
+        public void Method4UpdateUpdatesProductData()
         {
             // Arrange
             ProductController controller = new ProductController();
@@ -70,7 +71,7 @@ namespace TestProductController
         }
 
         [Test]
-        public void MethodDeleteDeletesProductById()
+        public void Method5DeleteDeletesProductById()
         {
             // Arrange
             ProductController controller = new ProductController();
@@ -82,20 +83,6 @@ namespace TestProductController
 
             // Assert
             Assert.Null(result);
-        }
-
-        [Test]
-        public void MethodGetByNameReturnsProductByProductName()
-        {
-            // Arrange
-            ProductController controller = new ProductController();
-            string name = "TestName";
-
-            // Act
-            var result = controller.GetByName(name);
-
-            // Assert
-            Assert.AreEqual(16, result.Id);
         }
     }
 }

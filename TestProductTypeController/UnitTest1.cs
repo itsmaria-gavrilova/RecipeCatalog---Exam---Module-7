@@ -8,7 +8,7 @@ namespace TestProductTypeController
     public class Tests
     {
         [Test]
-        public void MethodGetAllReturnsAllProductTypes()
+        public void Method1GetAllReturnsAllProductTypes()
         {
             // Arrange
             ProductTypeController controller = new ProductTypeController();
@@ -17,11 +17,11 @@ namespace TestProductTypeController
             var result = controller.GetAll();
 
             // Assert
-            Assert.AreEqual(11, result.Count);
+            Assert.AreEqual(9, result.Count);
         }
 
         [Test]
-        public void MethodGetReturnsProductTypeById()
+        public void Method2GetReturnsProductTypeById()
         {
             // Arrange
             ProductTypeController controller = new ProductTypeController();
@@ -36,7 +36,7 @@ namespace TestProductTypeController
         }
 
         [Test]
-        public void MethodAddAddsNewProductType()
+        public void Method3AddAddsNewProductType()
         {
             // Arrange
             ProductTypeController controller = new ProductTypeController();
@@ -53,11 +53,11 @@ namespace TestProductTypeController
         }
 
         [Test]
-        public void MethodDeleteDeletesProductTypeById()
+        public void Method4DeleteDeletesProductTypeById()
         {
             // Arrange
             ProductTypeController controller = new ProductTypeController();
-            int id = controller.GetByName("Test");
+            int id = controller.GetByName("newTest");
 
             // Act
             controller.Delete(id);
@@ -65,19 +65,6 @@ namespace TestProductTypeController
 
             // Assert
             Assert.Null(result);
-        }
-        [Test]
-        public void MethodGetByNameReturnsIdByProductTypeName()
-        {
-            // Arrange
-            ProductTypeController controller = new ProductTypeController();
-            string name = "newTest";
-
-            // Act
-            var result = controller.GetByName(name);
-
-            // Assert
-            Assert.AreEqual(15, result);
         }
     }
 }

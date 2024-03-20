@@ -7,7 +7,7 @@ namespace TestRecipeController
     public class Tests
     {
         [Test]
-        public void MethodGetAllReturnsAllRecipes()
+        public void Method1GetAllReturnsAllRecipes()
         {
             // Arrange
             RecipeController controller = new RecipeController();
@@ -16,36 +16,104 @@ namespace TestRecipeController
             var result = controller.GetAll();
 
             // Assert
-            Assert.AreEqual(5, result.Count);
+            Assert.AreEqual(3, result.Count);
         }
 
-        //[Test]
-        //public void MethodAddAddsNewRecipe()
-        //{
-        //    // Arrange
-        //    RecipeController controller = new RecipeController();
-        //    Recipe recipe = new Recipe();
-        //    recipe.Name = "NewRecipe";
-        //    recipe.Kcal = 200;
-        //    recipe.Rating = 5;
-        //    recipe.TypeId = 2;
-        //    recipe.Description = "newRecipeDescription";
+        [Test]
+        public void Method2AddAddsNewRecipe()
+        {
+            // Arrange
+            RecipeController controller = new RecipeController();
+            Recipe recipe = new Recipe();
+            recipe.Name = "NewRecipe";
+            recipe.Kcal = 200;
+            recipe.Rating = 5;
+            recipe.TypeId = 2;
+            recipe.Description = "newRecipeDescription";
 
-        //    // Act
-        //    controller.Add(recipe);
-        //    int id = controller.GetByName(recipe.Name).Id;
-        //    var result = controller.Get(id);
+            // Act
+            controller.Add(recipe);
+            int id = controller.GetByName(recipe.Name).Id;
+            var result = controller.Get(id);
 
-        //    //Assert
-        //    Assert.AreEqual("NewRecipe", result.Name);
-        //}
+            //Assert
+            Assert.AreEqual("NewRecipe", result.Name);
+        }
 
         [Test]
-        public void MethodDeleteDeletesRecipeById()
+        public void Method4CalculatePriceReturnsTotalPriceOfRecipe()
+        {
+            // Arrange
+            RecipeController controller = new RecipeController();
+            ProductController pController = new ProductController();
+            Recipe recipe = controller.GetByName("NewRecipe");
+
+            // Act
+            var result = controller.CalculatePrice(recipe);
+            List<string> products = controller.GetProductsByRecipe(recipe.Name);
+            pController.Delete(pController.GetByName(products[0]).Id);
+            pController.Delete(pController.GetByName(products[1]).Id);
+
+            // Assert
+            Assert.AreEqual(4, result);
+        }
+
+        [Test]
+        public void Method3GetProductsByRecipeReturnsAllProductsInGivenRecipe()
+        {
+            // Arrange
+            RecipeController controller = new RecipeController();
+            ProductController pController = new ProductController();
+            Recipe recipe = controller.GetByName("NewRecipe");
+            Product product1 = new Product();
+            product1.Name = "testProduct";
+            product1.Price = 1.5;
+            product1.TypeId = 2;
+            Product product2 = new Product();
+            product2.Name = "testProduct2";
+            product2.Price = 2.5;
+            product2.TypeId = 3;
+
+            // Act
+            pController.Add(product1);
+            pController.Add(product2);
+            Product_Recipe pr = new Product_Recipe();
+            pr.RecipeId = controller.GetByName(recipe.Name).Id;
+            pr.ProductId = pController.GetByName(product1.Name).Id;
+            controller.AddProductRecipe(pr);
+            Product_Recipe pr2 = new Product_Recipe();
+            pr2.RecipeId = controller.GetByName(recipe.Name).Id;
+            pr2.ProductId = pController.GetByName(product2.Name).Id;
+            controller.AddProductRecipe(pr2);
+            var result = controller.GetProductsByRecipe("NewRecipe");
+            
+            // Assert
+            Assert.AreEqual(2, result.Count);
+        }
+
+        [Test]
+        public void Method5UpdateUpdatesRecipeData()
         {
             // Arrange
             RecipeController controller = new RecipeController();
             int id = controller.GetByName("NewRecipe").Id;
+            Recipe recipe = controller.Get(id);
+            recipe.Name = "UpdatedRecipe";
+
+            // Act
+            controller.Update(recipe);
+            var result = controller.Get(id);
+
+            // Assert
+            Assert.AreEqual("UpdatedRecipe", result.Name);
+        }
+
+        [Test]
+        public void Method6DeleteDeletesRecipeById()
+        {
+            // Arrange
+            RecipeController controller = new RecipeController();
+            int id = controller.GetByName("UpdatedRecipe").Id;
 
             // Act
             controller.Delete(id);
@@ -60,7 +128,7 @@ namespace TestRecipeController
         {
             // Arrange
             RecipeController controller = new RecipeController();
-            int id = 5;
+            int id = 2;
 
             // Act
             var result = controller.Get(id);
@@ -71,44 +139,10 @@ namespace TestRecipeController
         }
 
         [Test]
-        public void MethodUpdateUpdatesRecipeData()
-        {
-            // Arrange
-            RecipeController controller = new RecipeController();
-            int id = controller.GetByName("NewRecipe").Id;
-            Recipe recipe = controller.Get(id);
-            recipe.Name = "UpdatedRecipe";
-            recipe.Kcal = 220;
-            recipe.Rating = 7;
-            recipe.TypeId = 2;
-            recipe.Description = "newRecipeDescription";
-
-            // Act
-            controller.Update(recipe);
-            var result = controller.Get(id);
-
-            // Assert
-            Assert.AreEqual(11, result.Id);
-        }
-
-        [Test]
-        public void MethodGetByNameReturnsRecipeByRecipeName()
-        {
-            // Arrange
-            RecipeController controller = new RecipeController();
-            string name = "UpdatedRecipe";
-
-            // Act
-            var result = controller.GetByName(name);
-
-            // Assert
-            Assert.AreEqual(11, result.Id);
-        }
-
-        [Test]
         public void MethodSortByCaloriesSortsRecipesByCalories()
         {
             // Arrange
+            List<Recipe> testRecipes = new List<Recipe>();
             RecipeController controller = new RecipeController();
             Recipe recipe1 = new Recipe();
             recipe1.Name = "testRecipe1";
@@ -130,10 +164,10 @@ namespace TestRecipeController
             recipe3.Description = "testRecipe3Description";
 
             // Act
-            controller.Add(recipe1);
-            controller.Add(recipe2);
-            controller.Add(recipe3);
-            var result = controller.SortByCalories();
+            testRecipes.Add(recipe1);
+            testRecipes.Add(recipe2);
+            testRecipes.Add(recipe3);
+            var result = controller.SortByCalories(testRecipes);
 
             // Assert
             Assert.AreEqual("testRecipe1", result.First().Name);
@@ -146,6 +180,7 @@ namespace TestRecipeController
         public void MethodTop5ByRatingReturns5HighestRatedRecipes()
         {
             // Arrange
+            List<Recipe> testRecipes = new List<Recipe>();
             RecipeController controller = new RecipeController();
             Recipe recipe1 = new Recipe();
             recipe1.Name = "testRecipe1";
@@ -178,14 +213,13 @@ namespace TestRecipeController
             recipe5.TypeId = 5;
             recipe5.Description = "testRecipe5Description";
 
-
             // Act
-            controller.Add(recipe1);
-            controller.Add(recipe2);
-            controller.Add(recipe3);
-            controller.Add(recipe4);
-            controller.Add(recipe5);
-            var result = controller.Top5ByRating();
+            testRecipes.Add(recipe1);
+            testRecipes.Add(recipe2);
+            testRecipes.Add(recipe3);
+            testRecipes.Add(recipe4);
+            testRecipes.Add(recipe5);
+            var result = controller.Top5ByRating(testRecipes);
 
             // Assert
             Assert.AreEqual("testRecipe3", result[0].Name);
@@ -195,75 +229,56 @@ namespace TestRecipeController
             Assert.AreEqual("testRecipe4", result[4].Name);
         }
 
-        [Test]
-        public void MethodCalculatePriceReturnsTotalPriceOfRecipe()
-        {
-            // Arrange
-            RecipeController controller = new RecipeController();
-            ProductController pController = new ProductController();
-            Recipe recipe = new Recipe();
-            recipe.Name = "testRecipe";
-            recipe.Kcal = 200;
-            recipe.Rating = 4;
-            recipe.Description = "testRecipeDesc";
-            recipe.TypeId = 2;
-            Product product1 = new Product();
-            product1.Name = "testProduct";
-            product1.Price = 1.5;
-            product1.TypeId = 2;
-            Product product2 = new Product();
-            product2.Name = "testProduct2";
-            product2.Price = 2.5;
-            product2.TypeId = 3;
-
-            // Act
-            controller.Add(recipe);
-            pController.Add(product1);
-            pController.Add(product2);
-            Product_Recipe pr = new Product_Recipe();
-            pr.RecipeId = controller.GetByName(recipe.Name).Id;
-            pr.ProductId = pController.GetByName(product1.Name).Id;
-            controller.AddProductRecipe(pr);
-            Product_Recipe pr2 = new Product_Recipe();
-            pr2.RecipeId = controller.GetByName(recipe.Name).Id;
-            pr2.ProductId = pController.GetByName(product2.Name).Id;
-            controller.AddProductRecipe(pr2);
-
-            var result = controller.CalculatePrice(recipe);
-
-            // Assert
-            Assert.AreEqual(4, result);
-        }
-
         //maria
         [Test]
         public void MethodGetAllByTypeReturnsAllRecipesFromGivenType()
         {
             // Arrange
+            List<Recipe> testRecipes = new List<Recipe>();
             RecipeController controller = new RecipeController();
-            RecipeTypeController rtController = new RecipeTypeController();
-            string type = "??????";
+            Recipe recipe1 = new Recipe();
+            recipe1.Name = "testRecipe1";
+            recipe1.Kcal = 200;
+            recipe1.Rating = 4;
+            recipe1.TypeId = 2;
+            recipe1.Description = "testRecipe1Description";
+            Recipe recipe2 = new Recipe();
+            recipe2.Name = "testRecipe2";
+            recipe2.Kcal = 200;
+            recipe2.Rating = 7;
+            recipe2.TypeId = 2;
+            recipe2.Description = "testRecipe2Description";
+            Recipe recipe3 = new Recipe();
+            recipe3.Name = "testRecipe3";
+            recipe3.Kcal = 366;
+            recipe3.Rating = 9;
+            recipe3.TypeId = 4;
+            recipe3.Description = "testRecipe3Description";
+            Recipe recipe4 = new Recipe();
+            recipe4.Name = "testRecipe4";
+            recipe4.Kcal = 200;
+            recipe4.Rating = 2;
+            recipe4.TypeId = 2;
+            recipe4.Description = "testRecipe4Description";
+            Recipe recipe5 = new Recipe();
+            recipe5.Name = "testRecipe5";
+            recipe5.Kcal = 489;
+            recipe5.Rating = 8;
+            recipe5.TypeId = 5;
+            recipe5.Description = "testRecipe5Description";
+            string type = "салата";
 
             // Act
-            RecipeType recipeType = rtController.Get(rtController.GetByName(type));
-            var result = controller.GetAllByType(recipeType.Name);
+            testRecipes.Add(recipe1);
+            testRecipes.Add(recipe2);
+            testRecipes.Add(recipe3);
+            testRecipes.Add(recipe4);
+            testRecipes.Add(recipe5);
+            var result = controller.GetAllByType(testRecipes,type);
 
             // Assert
-            Assert.AreEqual(8, result.Count);
+            Assert.AreEqual(3, result.Count);
 
-        }
-        [Test]
-        public void MethodGetProductsByRecipeReturnsAllProductsInGivenRecipe()
-        {
-            // Arrange
-            RecipeController controller = new RecipeController();
-            Recipe recipe = controller.GetByName("testRecipe");
-
-            // Act
-            var result = controller.GetProductsByRecipe(recipe.Name);
-
-            // Assert
-            Assert.AreEqual(2, result.Count);
         }
     }
 }

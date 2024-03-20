@@ -25,19 +25,6 @@ namespace Business
                 return dbContext.Recipes.Include(rt => rt.RecipeType).ToList();
             }
         }
-        //Метод, който намира и изтрива рецепта от базата данни по нейното ИД
-        public void Delete(int id)
-        {
-            using (dbContext = new RecipeCatalogDbContext())
-            {
-                var recipe = dbContext.Recipes.Find(id);
-                if (recipe != null)
-                {
-                    dbContext.Recipes.Remove(recipe);
-                    dbContext.SaveChanges();
-                }
-            }
-        }
         //Метод, който намира и връща рецепта от базата данни по нейното ИД
         public Recipe Get(int id)
         {
@@ -68,29 +55,42 @@ namespace Business
                 }
             }
         }
-        //Метод, който сортира всички рецепти в базата данни във възходящ ред на тяхната калоричност
-        public List<Recipe> SortByCalories()
+        //Метод, който намира и изтрива рецепта от базата данни по нейното ИД
+        public void Delete(int id)
         {
             using (dbContext = new RecipeCatalogDbContext())
             {
-                return dbContext.Recipes.OrderBy(x => x.Kcal).ToList();
+                var recipe = dbContext.Recipes.Find(id);
+                if (recipe != null)
+                {
+                    dbContext.Recipes.Remove(recipe);
+                    dbContext.SaveChanges();
+                }
+            }
+        }
+        //Метод, който сортира всички рецепти в базата данни във възходящ ред на тяхната калоричност
+        public List<Recipe> SortByCalories(List<Recipe> recipes)
+        {
+            using (dbContext = new RecipeCatalogDbContext())
+            {
+                return recipes.OrderBy(x => x.Kcal).ToList();
             }
         }
         //Метод, който намира и извежда всички рецепти от даден тип
-        public List<Recipe> GetAllByType(string type)
+        public List<Recipe> GetAllByType(List<Recipe> recipes, string type)
         {
             using (dbContext = new RecipeCatalogDbContext())
             {
                 int id = recipeTypeController.GetByName(type);
-                return dbContext.Recipes.Where(x => x.TypeId == id).ToList();
+                return recipes.Where(x => x.TypeId == id).ToList();
             }
         }
         //Метод, който сортира и връща пет рецепти в низходящ ред на техния рейтинг
-        public List<Recipe> Top5ByRating()
+        public List<Recipe> Top5ByRating(List<Recipe> recipes)
         {
             using (dbContext = new RecipeCatalogDbContext())
             {
-                return dbContext.Recipes.OrderByDescending(x => x.Rating).Take(5).ToList();
+                return recipes.OrderByDescending(x => x.Rating).Take(5).ToList();
             }
         }
         //Метод, който изчислява сбора от цените на всички продукти в една рецепта (цената на рецептата за една порция)
@@ -130,6 +130,7 @@ namespace Business
             }
             return productsByRecipe;
         }
+        //Метод, който добавя данни в свързващата таблица
         public void AddProductRecipe(Product_Recipe pr)
         {
             using (dbContext = new RecipeCatalogDbContext())
