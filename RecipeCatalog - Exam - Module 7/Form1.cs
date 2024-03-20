@@ -34,100 +34,102 @@ namespace RecipeCatalog___Exam___Module_7
             this.form2 = new Form2();
             rbAdmin.Checked = true;
             rbAdd.Checked = true;
-            //AddData();
+            AddData();
             AddComboBoxItems();
             AddCheckedListBoxItems();
         }
-        //private void AddData()
-        //{
-        //    RecipeType type1 = new RecipeType();
-        //    type1.Name = "паста";
-        //    recipeTypeController.Add(type1);
-        //    RecipeType type2 = new RecipeType();
-        //    type2.Name = "салата";
-        //    recipeTypeController.Add(type2);
-        //    RecipeType type3 = new RecipeType();
-        //    type3.Name = "скара";
-        //    recipeTypeController.Add(type3);
-        //    RecipeType type4 = new RecipeType();
-        //    type4.Name = "десерт";
-        //    recipeTypeController.Add(type4);
-        //    RecipeType type5 = new RecipeType();
-        //    type5.Name = "печиво";
-        //    recipeTypeController.Add(type5);
-        //    RecipeType type6 = new RecipeType();
-        //    type6.Name = "супа";
-        //    recipeTypeController.Add(type6);
-        //    RecipeType type7 = new RecipeType();
-        //    type7.Name = "разядка";
-        //    recipeTypeController.Add(type7);
-        //    RecipeType type8 = new RecipeType();
-        //    type8.Name = "яхнии";
-        //    recipeTypeController.Add(type8);
-        //    RecipeType type9 = new RecipeType();
-        //    type9.Name = "тестени";
-        //    recipeTypeController.Add(type9);
-        //    RecipeType type10 = new RecipeType();
-        //    type10.Name = "сос";
-        //    recipeTypeController.Add(type10);
-        //    RecipeType type11 = new RecipeType();
-        //    type11.Name = "риба";
-        //    recipeTypeController.Add(type11);
+        //метод, който добавя данни в базата
 
-        //    ProductType ptype1 = new ProductType();
-        //    ptype1.Name = "плод";
-        //    productTypeController.Add(ptype1);
-        //    ProductType ptype2 = new ProductType();
-        //    ptype2.Name = "зеленчук";
-        //    productTypeController.Add(ptype2);
-        //    ProductType ptype3 = new ProductType();
-        //    ptype3.Name = "вариво";
-        //    productTypeController.Add(ptype3);
-        //    ProductType ptype4 = new ProductType();
-        //    ptype4.Name = "месо";
-        //    productTypeController.Add(ptype4);
-        //    ProductType ptype5 = new ProductType();
-        //    ptype5.Name = "тестени";
-        //    productTypeController.Add(ptype5);
-        //    ProductType ptype6 = new ProductType();
-        //    ptype6.Name = "захарни";
-        //    productTypeController.Add(ptype6);
-        //    ProductType ptype7 = new ProductType();
-        //    ptype7.Name = "зърнени";
-        //    productTypeController.Add(ptype7);
-        //    ProductType ptype8 = new ProductType();
-        //    ptype8.Name = "морска храна";
-        //    productTypeController.Add(ptype8);
-        //    ProductType ptype9 = new ProductType();
-        //    ptype9.Name = "млечни";
-        //    productTypeController.Add(ptype9);
+        private void AddData()
+        {
+            RecipeType type1 = new RecipeType();
+            type1.Name = "паста";
+            recipeTypeController.Add(type1);
+            RecipeType type2 = new RecipeType();
+            type2.Name = "салата";
+            recipeTypeController.Add(type2);
+            RecipeType type3 = new RecipeType();
+            type3.Name = "скара";
+            recipeTypeController.Add(type3);
+            RecipeType type4 = new RecipeType();
+            type4.Name = "десерт";
+            recipeTypeController.Add(type4);
+            RecipeType type5 = new RecipeType();
+            type5.Name = "печиво";
+            recipeTypeController.Add(type5);
+            RecipeType type6 = new RecipeType();
+            type6.Name = "супа";
+            recipeTypeController.Add(type6);
+            RecipeType type7 = new RecipeType();
+            type7.Name = "разядка";
+            recipeTypeController.Add(type7);
+            RecipeType type8 = new RecipeType();
+            type8.Name = "яхнии";
+            recipeTypeController.Add(type8);
+            RecipeType type9 = new RecipeType();
+            type9.Name = "тестени";
+            recipeTypeController.Add(type9);
+            RecipeType type10 = new RecipeType();
+            type10.Name = "сос";
+            recipeTypeController.Add(type10);
+            RecipeType type11 = new RecipeType();
+            type11.Name = "риба";
+            recipeTypeController.Add(type11);
 
-        //    Product product1 = new Product();
-        //    product1.Name = "краставица";
-        //    product1.Price = 0.7;
-        //    product1.TypeId = 2;
-        //    productController.Add(product1);
-        //    Product product2 = new Product();
-        //    product2.Name = "домат";
-        //    product2.Price = 0.8;
-        //    product2.TypeId = 2;
-        //    productController.Add(product2);
-        //    Product product3 = new Product();
-        //    product3.Name = "хляб";
-        //    product3.Price = 1.2;
-        //    product3.TypeId = 5;
-        //    productController.Add(product3);
-        //    Product product4 = new Product();
-        //    product4.Name = "салам";
-        //    product4.Price = 2.3;
-        //    product4.TypeId = 4;
-        //    productController.Add(product4);
-        //    Product product5 = new Product();
-        //    product5.Name = "сирене";
-        //    product5.Price = 5.4;
-        //    product5.TypeId = 9;
-        //    productController.Add(product5);
-        //}
+            ProductType ptype1 = new ProductType();
+            ptype1.Name = "плод";
+            productTypeController.Add(ptype1);
+            ProductType ptype2 = new ProductType();
+            ptype2.Name = "зеленчук";
+            productTypeController.Add(ptype2);
+            ProductType ptype3 = new ProductType();
+            ptype3.Name = "вариво";
+            productTypeController.Add(ptype3);
+            ProductType ptype4 = new ProductType();
+            ptype4.Name = "месо";
+            productTypeController.Add(ptype4);
+            ProductType ptype5 = new ProductType();
+            ptype5.Name = "тестени";
+            productTypeController.Add(ptype5);
+            ProductType ptype6 = new ProductType();
+            ptype6.Name = "захарни";
+            productTypeController.Add(ptype6);
+            ProductType ptype7 = new ProductType();
+            ptype7.Name = "зърнени";
+            productTypeController.Add(ptype7);
+            ProductType ptype8 = new ProductType();
+            ptype8.Name = "морска храна";
+            productTypeController.Add(ptype8);
+            ProductType ptype9 = new ProductType();
+            ptype9.Name = "млечни";
+            productTypeController.Add(ptype9);
+
+            Product product1 = new Product();
+            product1.Name = "краставица";
+            product1.Price = 0.7;
+            product1.TypeId = 2;
+            productController.Add(product1);
+            Product product2 = new Product();
+            product2.Name = "домат";
+            product2.Price = 0.8;
+            product2.TypeId = 2;
+            productController.Add(product2);
+            Product product3 = new Product();
+            product3.Name = "хляб";
+            product3.Price = 1.2;
+            product3.TypeId = 5;
+            productController.Add(product3);
+            Product product4 = new Product();
+            product4.Name = "салам";
+            product4.Price = 2.3;
+            product4.TypeId = 4;
+            productController.Add(product4);
+            Product product5 = new Product();
+            product5.Name = "сирене";
+            product5.Price = 5.4;
+            product5.TypeId = 9;
+            productController.Add(product5);
+        }
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -483,6 +485,8 @@ namespace RecipeCatalog___Exam___Module_7
             UpdateGrid();
             ClearTextBoxes();
         }
+
+        //метод, който показва в Data Grid View всички данни от определена таблица и дава възможност да се избира един цял ред
         private void UpdateGrid()
         {
             dgvProductType.DataSource = productTypeController.GetAll();
@@ -501,6 +505,8 @@ namespace RecipeCatalog___Exam___Module_7
             dgvRecipe.ReadOnly = true;
             dgvRecipe.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
+
+        //метод, който изчиства данните от текстовите кутии
         private void ClearTextBoxes()
         {
             txb2.Clear();
@@ -509,12 +515,15 @@ namespace RecipeCatalog___Exam___Module_7
             txb4.Clear();
             rtxbDesc.Clear();
         }
+
+        //метод, който изчиства текущата селекция, като премахва всички избрани клетки
         private void ResetSelect()
         {
             dgvProduct.ClearSelection();
             dgvRecipe.ClearSelection();
-
         }
+
+        //метод, извежда текущата информация за даден продукт в текстовите кутии
         private void UpdateProductTextBoxes(int id)
         {
             Product update = productController.Get(id);
@@ -522,6 +531,8 @@ namespace RecipeCatalog___Exam___Module_7
             txb2.Text = update.Price.ToString();
             txb3.Text = productTypeController.Get(update.TypeId).Name;
         }
+
+        //метод, извежда текущата информация за дадена рецепта в текстовите кутии
         private void UpdateRecipeTextBoxes(int id)
         {
             Recipe update = recipeController.Get(id);
@@ -557,6 +568,8 @@ namespace RecipeCatalog___Exam___Module_7
                 lsBoxRecipes.Items.Add(recipe.Name);
             }
         }
+
+        //метод, който добавя типовете рецепти в ComboBox
         private void AddComboBoxItems()
         {
             List<RecipeType> rt = recipeTypeController.GetAll();
@@ -565,6 +578,8 @@ namespace RecipeCatalog___Exam___Module_7
                 CbRecipeType.Items.Add(item.Name);
             }
         }
+
+        //метод, който добавя продуктите от базата в CheckedListBox
         private void AddCheckedListBoxItems()
         {
             List<Product> products = productController.GetAll();
