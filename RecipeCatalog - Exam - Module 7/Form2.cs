@@ -38,7 +38,7 @@ namespace RecipeCatalog___Exam___Module_7
             lblRatingResult.Text = recipe.Rating.ToString();
             lblTypeResult.Text = recipeTypeController.Get(recipe.TypeId).Name;
             lblRecipeName.Text = recipe.Name.ToString();
-            lblPriceResult.Text = recipeController.CalculatePrice(recipe).ToString();
+            lblPriceResult.Text = recipeController.CalculatePrice(recipe).ToString()+" лв.";
             lblProductsResult.Text = String.Join('\n', recipeController.GetProductsByRecipe(recipe.Name));
         }
     }

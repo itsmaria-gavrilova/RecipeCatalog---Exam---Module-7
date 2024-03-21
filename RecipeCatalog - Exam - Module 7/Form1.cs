@@ -38,8 +38,8 @@ namespace RecipeCatalog___Exam___Module_7
             AddComboBoxItems();
             AddCheckedListBoxItems();
         }
-        //метод, който добавя данни в базата
 
+        //метод, който добавя данни в базата
         private void AddData()
         {
             RecipeType type1 = new RecipeType();
